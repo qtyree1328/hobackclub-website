@@ -1,125 +1,234 @@
 ---
-// Footer.astro - Shared footer component
+// Footer.astro - 2-panel footer matching Mailchimp closing style
 import { withBase } from '../utils/paths';
+
+const pageLinks = [
+  { href: '/discover', label: 'Discover Us' },
+  { href: '/stay', label: 'Come & Stay' },
+  { href: '/amenities', label: 'Amenities' },
+  { href: '/mountain', label: 'Mountain' },
+  { href: '/lifestyle', label: 'Lifestyle' },
+  { href: '/membership', label: 'Membership' },
+  { href: '/contact', label: 'Contact Us' },
+  { href: 'https://members.hobackclub.com', label: 'Member Login', external: true },
+];
 ---
 
 <footer>
-  <div class="footer-inner">
-    <div class="footer-logo">
-      <a href={withBase('/')}><img src={withBase('/images/logo-footer.svg')} alt="Hoback Club" /></a>
-    </div>
-    <div class="footer-info">
-      <div class="footer-info-top">
-        <div class="footer-contact">
-          <strong>Contact Us</strong>
-          <a href="#">P.O. Box 158, Teton Village, WY 83025</a>
-          <a href="tel:+13072491000">(307) 249-1000</a>
-        </div>
-        <div class="footer-links">
-          <a href={withBase('/membership')}>Membership Inquiries</a>
-          <a href={withBase('/contact')}>Contact Us</a>
-        </div>
+  <!-- Panel 1: CTA + Links (left) / Drawing (right) — tan background -->
+  <div class="footer-cta">
+    <div class="footer-cta-inner">
+      <div class="footer-cta-text">
+        <h2 class="footer-cta-heading">Questions or Special Requests?</h2>
+        <p class="footer-cta-body">
+          Contact us at <a href="tel:+13072491000" class="footer-phone">(307) 249-1000</a> or email <a href="mailto:info@hobackclub.com" class="footer-phone">info@hobackclub.com</a>
+        </p>
+        <a href={withBase('/contact')} class="footer-cta-btn">Get in Touch</a>
       </div>
-      <div class="footer-bottom">
+      <div class="footer-cta-drawing">
+        <img src={withBase('/images/hoback_drawing1.png')} alt="" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel 2: Links + Legal — dark background -->
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <div class="footer-logo">
+        <a href={withBase('/')}>
+          <img src={withBase('/images/logo-footer.svg')} alt="Hoback Club" />
+        </a>
+      </div>
+      <nav class="footer-nav">
+        {pageLinks.map(link => (
+          <a
+            href={link.external ? link.href : withBase(link.href)}
+            {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+          >{link.label}</a>
+        ))}
+      </nav>
+      <div class="footer-legal">
         <span>&copy; {new Date().getFullYear()} Hoback Club. All Rights Reserved.</span>
-        <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">&uarr;</button>
+        <span class="footer-address">P.O. Box 158, Teton Village, WY 83025</span>
       </div>
     </div>
+    <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">&uarr;</button>
   </div>
 </footer>
 
 <style>
   footer {
-    background: #1e2d3a;
-    color: rgba(255, 255, 255, 0.6);
-    padding: 60px 50px 30px;
+    margin: 0;
+    padding: 0;
   }
-  .footer-inner {
-    max-width: 1200px;
+
+  /* ===== PANEL 1: TAN CTA SECTION ===== */
+  .footer-cta {
+    background: #ede9e1;
+    padding: 50px 40px;
+  }
+  .footer-cta-inner {
+    max-width: 1000px;
     margin: 0 auto;
     display: flex;
-    gap: 60px;
-    align-items: flex-start;
+    align-items: center;
+    gap: 40px;
   }
-  .footer-logo img {
-    height: 60px;
-    width: auto;
-  }
-  .footer-info {
+  .footer-cta-text {
     flex: 1;
   }
-  .footer-info-top {
-    display: flex;
-    justify-content: space-between;
-    gap: 40px;
-    margin-bottom: 40px;
-    padding-bottom: 30px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  .footer-cta-heading {
+    font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+    font-size: 26px;
+    font-weight: 300;
+    color: #1e2d3a;
+    line-height: 1.25;
+    margin: 0 0 12px;
   }
-  .footer-contact strong {
-    display: block;
-    font-size: 0.75rem;
+  .footer-cta-body {
+    font-family: 'Lato', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: #666;
+    line-height: 1.7;
+    margin: 0 0 24px;
+  }
+  .footer-phone {
+    color: #1e2d3a;
+    text-decoration: none;
     font-weight: 700;
+  }
+  .footer-phone:hover {
+    text-decoration: underline;
+  }
+  .footer-cta-btn {
+    display: inline-block;
+    font-family: 'Lato', Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+    background: #1e2d3a;
+    text-decoration: none;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 12px;
+    letter-spacing: 3px;
+    padding: 12px 32px;
+    transition: background 0.3s;
   }
-  .footer-contact a {
+  .footer-cta-btn:hover {
+    background: #0d1a24;
+  }
+  .footer-cta-drawing {
+    flex: 0 0 220px;
+    text-align: right;
+  }
+  .footer-cta-drawing img {
     display: block;
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.6);
-    margin-bottom: 6px;
-    transition: color 0.3s;
+    width: 220px;
+    height: auto;
+    opacity: 0.25;
   }
-  .footer-contact a:hover { color: #fff; }
-  .footer-links {
+
+  /* ===== PANEL 2: DARK BOTTOM BAR ===== */
+  .footer-bottom {
+    background: #1e2d3a;
+    padding: 40px 40px 30px;
+    position: relative;
+  }
+  .footer-bottom-inner {
+    max-width: 1000px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    align-items: center;
+    gap: 24px;
   }
-  .footer-links a {
-    font-size: 0.78rem;
+  .footer-logo img {
+    height: 50px;
+    width: auto;
+    opacity: 0.8;
+  }
+
+  /* Page links row */
+  .footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 28px;
+  }
+  .footer-nav a {
+    font-family: 'Lato', Helvetica, Arial, sans-serif;
+    font-size: 0.7rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: rgba(255, 255, 255, 0.6);
+    letter-spacing: 0.12em;
+    color: rgba(255, 255, 255, 0.55);
+    text-decoration: none;
     transition: color 0.3s;
   }
-  .footer-links a:hover { color: #fff; }
-  .footer-bottom {
+  .footer-nav a:hover {
+    color: #fff;
+  }
+
+  /* Legal line */
+  .footer-legal {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px 20px;
+    font-family: 'Lato', Helvetica, Arial, sans-serif;
+    font-size: 0.68rem;
+    color: rgba(255, 255, 255, 0.35);
   }
-  .footer-bottom span {
-    font-size: 0.78rem;
-  }
+
+  /* Back to top */
   .back-to-top {
+    position: absolute;
+    right: 40px;
+    bottom: 30px;
     width: 36px;
     height: 36px;
     border-radius: 50%;
     border: 1px solid rgba(255, 255, 255, 0.2);
     background: transparent;
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.5);
     font-size: 1rem;
     cursor: pointer;
     transition: border-color 0.3s, color 0.3s;
-    min-width: 36px;
-    min-height: 36px;
   }
   .back-to-top:hover {
     border-color: rgba(255, 255, 255, 0.5);
     color: #fff;
   }
 
+  /* ===== MOBILE ===== */
   @media (max-width: 768px) {
-    footer { padding: 40px 20px 24px; }
-    .footer-inner { flex-direction: column; gap: 30px; align-items: flex-start; }
-    .footer-info-top { flex-direction: column; gap: 20px; width: 100%; }
-    .footer-contact, .footer-links { width: 100%; }
-    .footer-bottom { flex-direction: column; gap: 20px; align-items: flex-start; }
-    .footer-contact a { font-size: 0.8rem; }
-    .footer-links a { font-size: 0.75rem; }
+    .footer-cta {
+      padding: 40px 20px;
+    }
+    .footer-cta-inner {
+      flex-direction: column;
+      text-align: center;
+    }
+    .footer-cta-drawing {
+      flex: 1;
+      text-align: center;
+    }
+    .footer-cta-drawing img {
+      margin: 0 auto;
+      width: 160px;
+    }
+    .footer-bottom {
+      padding: 30px 20px 24px;
+    }
+    .footer-nav {
+      gap: 6px 16px;
+    }
+    .footer-nav a {
+      font-size: 0.65rem;
+    }
+    .back-to-top {
+      right: 20px;
+      bottom: 24px;
+    }
   }
 </style>

@@ -61,50 +61,58 @@ const rightLinks = [
 </header>
 
 <style>
+  /* Header: fully transparent at top, dark on scroll */
   header {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 1000;
-    transition: background 0.3s;
+    background: transparent;
+    transition: background 0.4s, backdrop-filter 0.4s;
   }
   header.scrolled {
-    background: rgba(30, 45, 58, 0.92);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: rgba(30, 45, 58, 0.85);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
   }
 
   nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 18px 40px;
+    padding: 22px 50px;
+    background: transparent;
     position: relative;
-    min-height: 60px;
+    transition: padding 0.3s;
+  }
+
+  /* Slightly tighter padding when scrolled, but not too small */
+  header.scrolled nav {
+    padding: 14px 50px;
   }
 
   .nav-left, .nav-right {
     display: flex;
-    gap: 36px;
+    gap: 32px;
     align-items: center;
   }
 
   .nav-left a, .nav-right a {
-    font-size: 0.72rem;
+    font-family: 'Lato', Helvetica, Arial, sans-serif;
+    font-size: 0.7rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: rgba(255, 255, 255, 0.8);
+    letter-spacing: 0.15em;
+    color: #fff;
     text-decoration: none;
-    transition: color 0.3s;
+    transition: opacity 0.3s;
     white-space: nowrap;
   }
-  .nav-left a:hover, .nav-right a:hover,
-  .nav-left a.active, .nav-right a.active {
-    color: #ffffff;
-  }
+  .nav-left a:hover, .nav-right a:hover { opacity: 0.7; }
+  .nav-left a.active, .nav-right a.active { opacity: 1; }
 
+  /* Logo */
   .nav-logo {
     margin: 0 50px;
     flex-shrink: 0;
@@ -115,27 +123,20 @@ const rightLinks = [
     text-decoration: none;
   }
   .nav-logo-shield {
-    height: 80px;
+    height: 100px;
     width: auto;
-    transition: opacity 0.3s, height 0.3s;
+    transition: opacity 0.4s;
   }
   .nav-logo-text-img {
-    height: 14px;
+    height: 30px;
     width: auto;
-    opacity: 0;
-    position: absolute;
-    transition: opacity 0.3s;
+    display: none;
   }
-  header.scrolled .nav-logo-shield {
-    opacity: 0;
-    height: 0;
-  }
-  header.scrolled .nav-logo-text-img {
-    opacity: 1;
-    position: relative;
-  }
+  /* Swap logo on scroll */
+  header.scrolled .nav-logo-shield { display: none; }
+  header.scrolled .nav-logo-text-img { display: block; }
 
-  /* Hamburger */
+  /* Hamburger (mobile only) */
   .nav-hamburger {
     display: none;
     flex-direction: column;
@@ -145,7 +146,7 @@ const rightLinks = [
     padding: 10px;
     cursor: pointer;
     position: absolute;
-    right: 15px;
+    right: 20px;
     z-index: 1001;
     min-width: 44px;
     min-height: 44px;
@@ -167,7 +168,7 @@ const rightLinks = [
     transform: rotate(-45deg) translate(5px, -5px);
   }
 
-  /* Mobile menu */
+  /* Mobile menu overlay */
   .mobile-menu {
     display: none;
     position: fixed;
@@ -186,14 +187,12 @@ const rightLinks = [
   }
   .mobile-menu-link {
     font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     font-weight: 300;
     color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
     transition: color 0.3s;
     padding: 12px 24px;
-    display: block;
-    text-align: center;
     min-height: 44px;
     display: flex;
     align-items: center;
@@ -208,16 +207,16 @@ const rightLinks = [
     nav {
       justify-content: center;
       padding: 12px 20px;
-      min-height: 56px;
     }
     .nav-logo { margin: 0; }
-    .nav-logo-shield { height: 50px; }
+    .nav-logo-shield { height: 60px; }
   }
 
   @media (max-width: 900px) and (min-width: 769px) {
-    .nav-left, .nav-right { gap: 20px; }
-    .nav-left a, .nav-right a { font-size: 0.65rem; letter-spacing: 0.08em; }
+    .nav-left, .nav-right { gap: 18px; }
+    .nav-left a, .nav-right a { font-size: 0.62rem; letter-spacing: 0.1em; }
     .nav-logo { margin: 0 30px; }
+    .nav-logo-shield { height: 80px; }
   }
 </style>
 

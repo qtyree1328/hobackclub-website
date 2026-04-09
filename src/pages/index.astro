@@ -4,30 +4,17 @@ import { withBase } from '../utils/paths';
 ---
 
 <BaseLayout title="Home" heroClass="homepage">
-  <!-- SECTION 1: Video Hero with Curtain Reveal -->
-  <section class="hero-section">
-    <div class="hero-container">
-      <video class="hero-video" autoplay muted playsinline preload="metadata">
+  <!-- SECTION 1: Video Hero with Curtain Reveal (matches hoback-demo) -->
+  <section class="hero" id="heroSection">
+    <div class="hero-mask" id="heroMask">
+      <video autoplay muted loop playsinline id="heroVideo">
         <source src={withBase('/videos/Hoback_website_video.mp4')} type="video/mp4" />
       </video>
-
-      <!-- Fallback image for browsers that don't support video -->
-      <div class="hero-fallback" style="background-image: url('https://hobackclub.com/images/dynamic/getImage.gif?ID=100032');"></div>
-
-      <!-- Curtain reveal overlay -->
-      <div class="curtain curtain-left"></div>
-      <div class="curtain curtain-right"></div>
-
-      <!-- Text overlay -->
-      <div class="hero-overlay">
-        <div class="hero-content">
-          <h1 class="hero-title">Hoback Club</h1>
-          <p class="hero-kicker">Jackson Hole, Wyoming</p>
-        </div>
+      <div class="hero-overlay"></div>
+      <div class="hero-text" id="heroText">
+        <h1>Hoback Club, Jackson Hole</h1>
       </div>
-
-      <!-- Scroll indicator -->
-      <div class="scroll-indicator">
+      <div class="scroll-down" id="scrollDown">
         <span></span>
       </div>
     </div>
@@ -264,151 +251,143 @@ import { withBase } from '../utils/paths';
         <a href={withBase('/stay')} class="btn btn--primary">Inquire About a Stay</a>
       </div>
       <div class="reserve-image">
-        <img src={withBase('/images/hoback_drawing1.png')} alt="Hoback Clubhouse" />
+        <img src={withBase('/images/Jackson_tram.png')} alt="Jackson Hole Tram" />
       </div>
     </div>
   </section>
 </BaseLayout>
 
 <style>
-  /* ========== HERO SECTION ========== */
-  .hero-section {
+  /* ========== HERO SECTION (clip-path mask reveal, matches hoback-demo) ========== */
+  .hero {
     position: relative;
-    overflow: hidden;
-    background: #000;
-    margin-top: 80px;
-  }
-
-  .hero-container {
-    position: relative;
-    width: 100%;
     height: 100vh;
+    min-height: 600px;
+    overflow: hidden;
+    background: url('https://hobackclub.com/images/dynamic/getImage.gif?ID=100032') center/cover no-repeat;
+  }
+
+  .hero-mask {
+    position: absolute;
+    inset: 0;
+    clip-path: polygon(50% 0%, 50% 0%, 50% 100%, 50% 100%);
     overflow: hidden;
   }
 
-  .hero-video {
+  .hero-mask.open {
+    animation: maskReveal 0.8s cubic-bezier(.76,.09,.215,1) forwards;
+  }
+
+  @keyframes maskReveal {
+    to { clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%); }
+  }
+
+  .hero-mask video {
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0;
-    transition: opacity 1s ease-out 0.6s;
+    transform: scale(1.05);
   }
 
-  .hero-video.revealed {
-    opacity: 1;
+  .hero-mask.open video {
+    animation: videoSettle 2s ease-out forwards;
   }
 
-  .hero-fallback {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-
-  .curtain {
-    position: absolute;
-    top: 0;
-    width: 50%;
-    height: 100%;
-    background: #1e2d3a;
-    z-index: 50;
-    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.4s;
-  }
-
-  .curtain-left {
-    left: 0;
-    transform: translateX(-100%);
-  }
-
-  .curtain-right {
-    right: 0;
-    transform: translateX(100%);
-  }
-
-  .curtain.revealed {
-    transform: translateX(0);
+  @keyframes videoSettle {
+    to { transform: scale(1); }
   }
 
   .hero-overlay {
     position: absolute;
     inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 40;
-    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+    background: linear-gradient(
+      to top,
+      rgba(30,45,58,0.65) 0%,
+      rgba(30,45,58,0.2) 40%,
+      transparent 100%
+    );
+    pointer-events: none;
+    opacity: 0;
   }
 
-  .hero-content {
-    text-align: center;
-    color: #fff;
+  .hero-mask.open .hero-overlay {
+    animation: heroFadeIn 2s ease-out forwards;
   }
 
-  .hero-title {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 4rem;
-    font-weight: 300;
-    margin: 0;
-    letter-spacing: 2px;
+  @keyframes heroFadeIn {
+    to { opacity: 1; }
   }
 
-  .hero-kicker {
-    font-family: 'Lato', Helvetica, Arial, sans-serif;
-    font-size: 0.85rem;
-    font-weight: 400;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    margin: 16px 0 0;
-    color: rgba(255, 255, 255, 0.9);
-  }
-
-  .scroll-indicator {
+  .hero-text {
     position: absolute;
-    bottom: 40px;
+    bottom: 80px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(20%);
+  }
+
+  .hero-text.visible {
+    animation: heroFadeInUp 0.6s ease forwards;
+  }
+
+  @keyframes heroFadeInUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-text h1 {
+    color: #fff;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 3.2rem;
+    font-weight: 300;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  .scroll-down {
+    position: absolute;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 60;
+    z-index: 2;
+    color: #fff;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    opacity: 0;
   }
 
-  .scroll-indicator span {
-    display: block;
-    width: 2px;
-    height: 20px;
-    background: rgba(255, 255, 255, 0.5);
-    margin: 0 auto;
-    animation: pulse-scroll 2s infinite;
+  .scroll-down.visible {
+    animation: heroFadeIn 0.5s ease forwards;
   }
 
-  @keyframes pulse-scroll {
-    0% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(8px);
-      opacity: 0;
-    }
+  .scroll-down span {
+    display: inline-block;
+    width: 1px;
+    height: 30px;
+    background: #fff;
+    animation: scrollPulse 2s infinite;
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.3; transform: scaleY(0.5); }
+    50% { opacity: 1; transform: scaleY(1); }
   }
 
   @media (max-width: 768px) {
-    .hero-section {
-      margin-top: 60px;
-    }
-    .hero-title {
-      font-size: 2.2rem;
-      letter-spacing: 1px;
-    }
-    .hero-kicker {
-      font-size: 0.75rem;
-      letter-spacing: 1px;
-    }
+    .hero { min-height: 400px; }
+    .hero-text h1 { font-size: 1.8rem; letter-spacing: 0.15em; }
+    .hero-text { bottom: 60px; }
   }
 
   /* ========== WEATHER SECTION ========== */
@@ -806,7 +785,7 @@ import { withBase } from '../utils/paths';
   }
 
   .season-fall {
-    background-image: url('https://hobackclub.com/images/dynamic/getImage.gif?ID=100032');
+    background-image: url('https://hobackclub.com/images/dynamic/getImage.gif?ID=100105');
   }
 
   .season-overlay {
@@ -1152,16 +1131,17 @@ import { withBase } from '../utils/paths';
 </style>
 
 <script>
-  // ========== CURTAIN REVEAL ANIMATION ==========
-  const curtainLeft = document.querySelector('.curtain-left');
-  const curtainRight = document.querySelector('.curtain-right');
-  const heroVideo = document.querySelector('.hero-video');
+  // ========== CURTAIN REVEAL ANIMATION (matches hoback-demo) ==========
+  const mask = document.getElementById('heroMask');
+  const heroText = document.getElementById('heroText');
+  const scrollDown = document.getElementById('scrollDown');
 
-  setTimeout(() => {
-    curtainLeft?.classList.add('revealed');
-    curtainRight?.classList.add('revealed');
-    heroVideo?.classList.add('revealed');
-  }, 300);
+  // Short delay so background image is visible first, then curtain opens
+  setTimeout(() => { mask?.classList.add('open'); }, 300);
+  // Text fades in after curtain finishes (0.8s)
+  setTimeout(() => { heroText?.classList.add('visible'); }, 1100);
+  // Scroll indicator after text
+  setTimeout(() => { scrollDown?.classList.add('visible'); }, 1600);
 
   // ========== GALLERY AUTO-SCROLL ==========
   const galleryTrack = document.getElementById('galleryTrack');
