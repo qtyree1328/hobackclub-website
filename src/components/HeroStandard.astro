@@ -1,0 +1,85 @@
+---
+interface Props {
+  title: string;
+  subtitle?: string;
+  imageUrl?: string;
+  imageId?: string;
+  height?: string;
+  overlay?: number;
+  gradient?: boolean;
+}
+
+const {
+  title,
+  subtitle,
+  imageUrl,
+  imageId,
+  height = '70vh',
+  overlay = 0.4,
+  gradient = false
+} = Astro.props;
+
+const bgImage = imageUrl || (imageId ? `https://hobackclub.com/images/dynamic/getImage.gif?ID=${imageId}` : '');
+---
+
+<section class="hero-standard" style={`min-height: ${height};`}>
+  {gradient ? (
+    <div class="hero-gradient-bg"></div>
+  ) : null}
+  {bgImage && !gradient ? (
+    <div class="hero-bg" style={`background-image: url('${bgImage}');`}></div>
+  ) : null}
+  {bgImage && gradient ? (
+    <div class="hero-bg hero-bg--faint" style={`background-image: url('${bgImage}');`}></div>
+  ) : null}
+  <div class="hero-overlay" style={`background: rgba(30,45,58,${overlay});`}></div>
+  <div class="hero-content">
+    {subtitle && <span class="kicker" style="color: rgba(255,255,255,0.7);">{subtitle}</span>}
+    <h1>{title}</h1>
+  </div>
+</section>
+
+<style>
+  .hero-standard {
+    position: relative;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+  }
+  .hero-bg--faint { opacity: 0.25; }
+  .hero-gradient-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #1e2d3a 0%, #0d1a24 60%, #162330 100%);
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 20px;
+  }
+  .hero-content h1 {
+    color: #fff;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 768px) {
+    .hero-standard { min-height: 50vh; }
+    .hero-content h1 { font-size: 1.8rem; letter-spacing: 0.12em; }
+  }
+</style>

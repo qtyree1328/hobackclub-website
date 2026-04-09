@@ -1,0 +1,401 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroStandard from '../components/HeroStandard.astro';
+---
+
+<BaseLayout title="Membership" description="Join the Hoback Club and experience luxury mountain living in Jackson Hole.">
+  <HeroStandard
+    title="Membership"
+    imageId="100043"
+    height="70vh"
+  />
+
+  <!-- Membership Description -->
+  <section class="section section--white">
+    <div class="container">
+      <div style="max-width: 800px; margin: 0 auto;">
+        <h2 style="font-size: 2.4rem; margin-bottom: 32px; text-align: center;">Become a Member</h2>
+        <div style="text-align: center; color: var(--text-secondary); line-height: 1.8; font-size: 1rem;">
+          <p style="margin-bottom: 20px;">
+            Hoback Club membership offers exclusive access to one of Jackson Hole's most prestigious private residence clubs. Members enjoy ski-in/ski-out access to Jackson Hole Mountain Resort, world-class dining, a full-service spa, and a community of like-minded individuals who share a passion for mountain living.
+          </p>
+          <p style="margin-bottom: 20px;">
+            Membership is by invitation and referral. Our carefully curated community ensures that every member shares our commitment to excellence, discretion, and the alpine lifestyle.
+          </p>
+          <p>
+            Experience the ultimate in mountain luxury and belonging. Join a club where exceptional experiences are everyday, and lifelong friendships are made on the slopes, around the dinner table, and throughout the seasons.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Grid -->
+  <section class="section section--paper">
+    <div class="container">
+      <h2 style="font-size: 2rem; margin-bottom: 60px; text-align: center;">Member Benefits</h2>
+      <div class="benefits-grid">
+        <div class="benefit-card reveal">
+          <h3 style="font-size: 1.3rem; margin-bottom: 12px; font-family: var(--serif); font-weight: 300;">Ski-In, Ski-Out Access</h3>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
+            Direct access to Jackson Hole Mountain Resort slopes right from the club
+          </p>
+        </div>
+
+        <div class="benefit-card reveal">
+          <h3 style="font-size: 1.3rem; margin-bottom: 12px; font-family: var(--serif); font-weight: 300;">Priority Reservations</h3>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
+            First access to dining, events, and exclusive member experiences
+          </p>
+        </div>
+
+        <div class="benefit-card reveal">
+          <h3 style="font-size: 1.3rem; margin-bottom: 12px; font-family: var(--serif); font-weight: 300;">Full-Service Spa</h3>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
+            Complete wellness services including massage, facials, and relaxation therapies
+          </p>
+        </div>
+
+        <div class="benefit-card reveal">
+          <h3 style="font-size: 1.3rem; margin-bottom: 12px; font-family: var(--serif); font-weight: 300;">The Great Hall Dining</h3>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
+            Fine dining in our signature venue with seasonal menus and wine selection
+          </p>
+        </div>
+
+        <div class="benefit-card reveal">
+          <h3 style="font-size: 1.3rem; margin-bottom: 12px; font-family: var(--serif); font-weight: 300;">Concierge Services</h3>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
+            24/7 concierge support for reservations, activities, and special requests
+          </p>
+        </div>
+
+        <div class="benefit-card reveal">
+          <h3 style="font-size: 1.3rem; margin-bottom: 12px; font-family: var(--serif); font-weight: 300;">Member Events</h3>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
+            Exclusive social events, galas, and seasonal celebrations throughout the year
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Membership Inquiry Form -->
+  <section class="section section--white">
+    <div class="container">
+      <div style="max-width: 800px; margin: 0 auto;">
+        <h2 style="font-size: 2rem; margin-bottom: 16px; text-align: center;">Membership Inquiry</h2>
+        <p style="text-align: center; color: var(--text-secondary); margin-bottom: 40px;">
+          Please complete the form below and a member of our team will be in touch.
+        </p>
+
+        <form id="membershipForm" class="form" novalidate>
+          <!-- Name Fields (2-column) -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name <span style="color: #e74c3c;">*</span></label>
+              <input
+                type="text"
+                id="firstName"
+                name="firstName"
+                required
+                placeholder="First Name"
+              />
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name <span style="color: #e74c3c;">*</span></label>
+              <input
+                type="text"
+                id="lastName"
+                name="lastName"
+                required
+                placeholder="Last Name"
+              />
+            </div>
+          </div>
+
+          <!-- Contact Fields (2-column) -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email <span style="color: #e74c3c;">*</span></label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                placeholder="your@email.com"
+              />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="(123) 456-7890"
+              />
+            </div>
+          </div>
+
+          <!-- Location Fields (2-column) -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="city">City</label>
+              <input
+                type="text"
+                id="city"
+                name="city"
+                placeholder="City"
+              />
+            </div>
+            <div class="form-group">
+              <label for="state">State</label>
+              <input
+                type="text"
+                id="state"
+                name="state"
+                placeholder="State"
+              />
+            </div>
+          </div>
+
+          <!-- How Did You Hear (Full Width) -->
+          <div class="form-group">
+            <label for="referral">How did you hear about Hoback Club? <span style="color: #e74c3c;">*</span></label>
+            <select id="referral" name="referral" required>
+              <option value="">Select an option</option>
+              <option value="member-referral">Referral from a Member</option>
+              <option value="real-estate">Real Estate Agent</option>
+              <option value="online">Online Search</option>
+              <option value="social">Social Media</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <!-- Member References (Full Width) -->
+          <div class="form-group">
+            <label for="references">Member References</label>
+            <textarea
+              id="references"
+              name="references"
+              rows="4"
+              placeholder="Please provide the names of any current Hoback Club members who can serve as references."
+            ></textarea>
+          </div>
+
+          <!-- Additional Comments (Full Width) -->
+          <div class="form-group">
+            <label for="comments">Additional Comments</label>
+            <textarea
+              id="comments"
+              name="comments"
+              rows="4"
+              placeholder="Tell us about yourself and your interest in the Hoback Club."
+            ></textarea>
+          </div>
+
+          <!-- Submit -->
+          <div style="text-align: center; margin-top: 40px;">
+            <button type="submit" class="btn btn--primary">Submit Inquiry</button>
+          </div>
+
+          <!-- Form Status Messages -->
+          <div id="formStatus" style="margin-top: 20px; text-align: center; display: none;"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Info -->
+  <section class="section section--tan">
+    <div class="container">
+      <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+        <h2 style="font-size: 2rem; margin-bottom: 24px;">Have Questions?</h2>
+        <p style="font-size: 1.1rem; margin-bottom: 12px; color: var(--text);">
+          <strong>Phone:</strong> (307) 249-1000
+        </p>
+        <p style="font-size: 1.1rem; margin-bottom: 12px; color: var(--text);">
+          <strong>Email:</strong> <a href="mailto:Concierge@hobackclub.com" style="color: var(--ink); text-decoration: underline;">Concierge@hobackclub.com</a>
+        </p>
+        <p style="font-size: 1rem; color: var(--text); margin-bottom: 32px;">
+          Mon-Sun, 7am - 10pm
+        </p>
+        <a href="/contact" class="btn btn--primary">Contact Our Team</a>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    /* Benefits Grid */
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    .benefit-card {
+      padding: 32px 24px;
+      background: var(--white);
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    /* Form Styles */
+    .form {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 12px 16px;
+      font-size: 1rem;
+      border: 1px solid var(--divider);
+      border-radius: 4px;
+      font-family: inherit;
+      color: var(--text);
+      background: #fff;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--ink);
+      box-shadow: 0 0 0 3px rgba(30, 45, 58, 0.1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+    }
+
+    .form-group select {
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%231e2d3a' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 36px;
+    }
+
+    @media (max-width: 768px) {
+      .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group input,
+      .form-group textarea,
+      .form-group select {
+        padding: 10px 14px;
+        font-size: 16px;
+      }
+    }
+
+    /* Reveal Animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.is-revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+
+  <script>
+    // Intersection Observer for benefit cards
+    const observerOptions = { threshold: 0.1 };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('is-revealed');
+          }, index * 100);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.benefit-card').forEach(card => {
+      observer.observe(card);
+    });
+
+    // Firebase Cloud Functions form submission
+    const form = document.querySelector('#membershipForm');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = form.querySelector('button[type="submit"]');
+      const origText = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+
+      const data = Object.fromEntries(new FormData(form));
+
+      try {
+        const res = await fetch('https://us-central1-hobackclub-website.cloudfunctions.net/submitMembership', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+        if (!res.ok) throw new Error('Failed');
+
+        form.innerHTML = `<div style="text-align:center;padding:48px 24px;">
+          <h3 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:28px;font-weight:300;color:#1e2d3a;margin-bottom:16px;">Thank You</h3>
+          <p style="font-family:'Lato',Helvetica,sans-serif;font-size:15px;color:#666;line-height:1.7;">We've received your membership inquiry and will review your application. We'll be in touch soon.</p>
+        </div>`;
+      } catch {
+        btn.disabled = false;
+        btn.textContent = origText;
+        let errEl = form.querySelector('.form-error');
+        if (!errEl) {
+          errEl = document.createElement('p');
+          errEl.className = 'form-error';
+          errEl.style.cssText = 'color:#c0392b;font-size:14px;margin-top:12px;text-align:center;';
+          btn.parentElement.appendChild(errEl);
+        }
+        errEl.textContent = 'Something went wrong. Please try again or call (307) 249-1000.';
+      }
+    });
+  </script>
+</BaseLayout>

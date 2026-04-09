@@ -1,0 +1,710 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroStandard from '../components/HeroStandard.astro';
+---
+
+<BaseLayout title="Come & Stay" description="Book your mountain retreat at Hoback Club — luxury private accommodations in Jackson Hole, Wyoming.">
+  <!-- SECTION 1: Hero -->
+  <HeroStandard
+    title="Come & Stay"
+    imageId="100068"
+    height="70vh"
+  />
+
+  <!-- SECTION 2: Introduction -->
+  <section class="section section--tan intro-section">
+    <div class="container">
+      <h2 class="intro-heading">Your Mountain Retreat Awaits</h2>
+      <p class="intro-paragraph">
+        Experience the pinnacle of alpine luxury at Hoback Club. Our private residences offer ski-in/ski-out access to Jackson Hole Mountain Resort, world-class amenities, and personalized concierge service. Whether you're seeking a powder-filled adventure or a peaceful mountain escape, our accommodations provide the perfect sanctuary in the heart of Wyoming's most exclusive destination.
+      </p>
+      <a href="/amenities" class="btn btn--primary">View Amenities</a>
+    </div>
+  </section>
+
+  <!-- SECTION 3: Residence Gallery -->
+  <section class="section section--paper">
+    <div class="container">
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img
+            src="https://hobackclub.com/images/dynamic/getImage.gif?ID=100091"
+            alt="Luxury residence exterior"
+            style="width: 100%; height: 350px; object-fit: cover; border-radius: 4px; display: block;"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://hobackclub.com/images/dynamic/getImage.gif?ID=100092"
+            alt="Modern interior living space"
+            style="width: 100%; height: 350px; object-fit: cover; border-radius: 4px; display: block;"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://hobackclub.com/images/dynamic/getImage.gif?ID=100096"
+            alt="Residence bedroom"
+            style="width: 100%; height: 350px; object-fit: cover; border-radius: 4px; display: block;"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://hobackclub.com/images/dynamic/getImage.gif?ID=100097"
+            alt="Residence outdoor patio"
+            style="width: 100%; height: 350px; object-fit: cover; border-radius: 4px; display: block;"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: Amenity Cards -->
+  <section class="section section--white amenity-section">
+    <div class="container">
+      <h2 class="section-heading">Amenities & Services</h2>
+      <div class="amenity-grid">
+        <div class="amenity-card">
+          <h3 class="amenity-title">Ski-In Ski-Out Access</h3>
+          <p class="amenity-description">Direct access to Jackson Hole Mountain Resort slopes from your residence.</p>
+        </div>
+        <div class="amenity-card">
+          <h3 class="amenity-title">Full-Service Spa</h3>
+          <p class="amenity-description">Relax and rejuvenate with world-class spa treatments and wellness services.</p>
+        </div>
+        <div class="amenity-card">
+          <h3 class="amenity-title">The Great Hall Dining</h3>
+          <p class="amenity-description">Fine dining experiences curated by our award-winning culinary team.</p>
+        </div>
+        <div class="amenity-card">
+          <h3 class="amenity-title">Heated Pool & Hot Tubs</h3>
+          <p class="amenity-description">Year-round aquatic amenities with mountain views and premium comfort.</p>
+        </div>
+        <div class="amenity-card">
+          <h3 class="amenity-title">Fitness Center</h3>
+          <p class="amenity-description">Fully equipped gym with personalized training and wellness programs.</p>
+        </div>
+        <div class="amenity-card">
+          <h3 class="amenity-title">Concierge Services</h3>
+          <p class="amenity-description">24/7 concierge team to arrange activities, reservations, and special requests.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: Services Section -->
+  <section class="section section--dark services-section">
+    <div class="container">
+      <h2 class="services-heading">Included Services</h2>
+      <div class="services-grid">
+        <div class="service-item">
+          <p class="service-name">Boot Warming</p>
+        </div>
+        <div class="service-item">
+          <p class="service-name">Ski Valet</p>
+        </div>
+        <div class="service-item">
+          <p class="service-name">24/7 Concierge</p>
+        </div>
+        <div class="service-item">
+          <p class="service-name">Airport Transfers</p>
+        </div>
+        <div class="service-item">
+          <p class="service-name">Daily Housekeeping</p>
+        </div>
+        <div class="service-item">
+          <p class="service-name">Equipment Storage</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: Dining Section -->
+  <section class="section section--paper dining-section">
+    <div class="container">
+      <h2 class="section-heading">Dining at Hoback</h2>
+
+      <!-- Menu Toggle -->
+      <div class="menu-toggle">
+        <button class="menu-btn menu-btn--active" data-menu="dinner">Dinner</button>
+        <button class="menu-btn" data-menu="lunch">Lunch</button>
+      </div>
+
+      <!-- Dinner Menu -->
+      <div class="menu-content menu-content--active" id="dinner">
+        <div class="menu-category">
+          <h3 class="menu-category-title">Appetizers</h3>
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <span class="menu-item-name">Parisian Onion Soup</span>
+              <span class="menu-item-price">$16</span>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <span class="menu-item-name">Island Creek Oysters</span>
+              <span class="menu-item-price">$28</span>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <span class="menu-item-name">Bibb Lettuce Salad</span>
+              <span class="menu-item-price">$14</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-category">
+          <h3 class="menu-category-title">Main Courses</h3>
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <span class="menu-item-name">Pan-Seared Salmon</span>
+              <span class="menu-item-price">$38</span>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <span class="menu-item-name">Grilled Ribeye</span>
+              <span class="menu-item-price">$52</span>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <span class="menu-item-name">Wild Mushroom Risotto</span>
+              <span class="menu-item-price">$28</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lunch Menu -->
+      <div class="menu-content" id="lunch">
+        <div class="menu-category">
+          <h3 class="menu-category-title">Starters</h3>
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <span class="menu-item-name">Soup of the Day</span>
+              <span class="menu-item-price">$12</span>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <span class="menu-item-name">House Salad</span>
+              <span class="menu-item-price">$14</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-category">
+          <h3 class="menu-category-title">Mains</h3>
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <span class="menu-item-name">Hoback Smash Burger</span>
+              <span class="menu-item-price">$19</span>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <span class="menu-item-name">Grilled Chicken Club</span>
+              <span class="menu-item-price">$18</span>
+            </div>
+          </div>
+          <div class="menu-item">
+            <div class="menu-item-header">
+              <span class="menu-item-name">Fish Tacos</span>
+              <span class="menu-item-price">$22</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-action">
+        <a href="#reserve-form" class="btn btn--primary">Reserve a Table</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: Reservation Form -->
+  <section class="section section--dark reservation-section" id="reserve-form">
+    <div class="container">
+      <h2 class="form-heading">Reserve Your Stay</h2>
+      <p class="form-subtitle">Contact our concierge team to plan your visit</p>
+
+      <form id="stayForm" class="reservation-form">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="firstName" class="form-label">First Name</label>
+            <input
+              type="text"
+              id="firstName"
+              name="firstName"
+              class="form-input"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="lastName" class="form-label">Last Name</label>
+            <input
+              type="text"
+              id="lastName"
+              name="lastName"
+              class="form-input"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="email" class="form-label">Email *</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-input"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="phone" class="form-label">Phone</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              class="form-input"
+            />
+          </div>
+          <div class="form-group">
+            <label for="checkIn" class="form-label">Check-in Date</label>
+            <input
+              type="date"
+              id="checkIn"
+              name="checkIn"
+              class="form-input"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="checkOut" class="form-label">Check-out Date</label>
+            <input
+              type="date"
+              id="checkOut"
+              name="checkOut"
+              class="form-input"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="guests" class="form-label">Number of Guests</label>
+            <input
+              type="number"
+              id="guests"
+              name="guests"
+              class="form-input"
+              min="1"
+              required
+            />
+          </div>
+          <div class="form-group form-group--full">
+            <label for="comments" class="form-label">Comments</label>
+            <textarea
+              id="comments"
+              name="comments"
+              class="form-input form-textarea"
+              rows="5"
+            ></textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn btn--white-outline">Submit Inquiry</button>
+      </form>
+
+      <div id="formMessage" class="form-message" style="display: none;"></div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: CTA -->
+  <section class="section section--tan cta-section">
+    <div class="container">
+      <h2 class="cta-heading">Questions?</h2>
+      <p class="cta-phone">(307) 249-1000</p>
+      <a href="/contact" class="btn btn--primary">Contact Us</a>
+    </div>
+  </section>
+
+  <style>
+    /* ── Introduction Section ── */
+    .intro-section { text-align: center; padding: 80px 40px; }
+    .intro-heading {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 300;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 20px;
+      color: var(--ink);
+    }
+    .intro-paragraph {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 30px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ── Gallery Grid ── */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .gallery-item { overflow: hidden; }
+
+    /* ── Amenity Section ── */
+    .amenity-section { text-align: center; background: #fff; }
+    .section-heading {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 300;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 60px;
+      color: var(--ink);
+    }
+    .amenity-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      margin-bottom: 0;
+    }
+    .amenity-card {
+      padding: 30px;
+      background: var(--paper);
+      border-radius: 4px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .amenity-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    .amenity-title {
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+      color: var(--ink);
+    }
+    .amenity-description {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ── Services Section ── */
+    .services-section { text-align: center; }
+    .services-heading {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 300;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 60px;
+      color: var(--white);
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+    .service-item {
+      padding: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+    }
+    .service-name {
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--white);
+    }
+
+    /* ── Dining Section ── */
+    .dining-section { }
+    .menu-toggle {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 50px;
+    }
+    .menu-btn {
+      padding: 12px 32px;
+      border: 2px solid var(--ink);
+      background: transparent;
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      border-radius: 24px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .menu-btn--active {
+      background: var(--ink);
+      color: var(--white);
+    }
+    .menu-content {
+      display: none;
+      animation: fadeUp 0.3s ease;
+    }
+    .menu-content--active {
+      display: block;
+    }
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .menu-category {
+      margin-bottom: 50px;
+    }
+    .menu-category-title {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 300;
+      color: var(--ink);
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .menu-item {
+      margin-bottom: 15px;
+    }
+    .menu-item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .menu-item-name {
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      color: var(--text);
+      font-weight: 400;
+    }
+    .menu-item-price {
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+      margin-left: 20px;
+    }
+    .menu-action {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    /* ── Reservation Form ── */
+    .reservation-section { }
+    .form-heading {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 300;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 10px;
+      color: var(--white);
+      text-align: center;
+    }
+    .form-subtitle {
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.8);
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    .reservation-form {
+      max-width: 800px;
+      margin: 0 auto 40px;
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+    .form-group--full {
+      grid-column: 1 / -1;
+    }
+    .form-label {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 8px;
+    }
+    .form-input {
+      padding: 14px 16px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--white);
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+    .form-input::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+    .form-input:focus {
+      outline: none;
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+    .form-textarea {
+      resize: vertical;
+      font-family: var(--sans);
+    }
+    .form-message {
+      text-align: center;
+      padding: 20px;
+      border-radius: 4px;
+      margin-top: 20px;
+      font-weight: 500;
+    }
+    .form-message.success {
+      background: rgba(76, 175, 80, 0.2);
+      color: #90ee90;
+    }
+    .form-message.error {
+      background: rgba(244, 67, 54, 0.2);
+      color: #ffcdd2;
+    }
+
+    /* ── CTA Section ── */
+    .cta-section {
+      text-align: center;
+      padding: 80px 40px;
+    }
+    .cta-heading {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 300;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 20px;
+      color: var(--ink);
+    }
+    .cta-phone {
+      font-family: var(--sans);
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 30px;
+    }
+
+    /* ── Mobile Responsive ── */
+    @media (max-width: 768px) {
+      .intro-section { padding: 50px 20px; }
+      .intro-heading { font-size: 1.5rem; }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+      .gallery-item img {
+        height: 250px !important;
+      }
+
+      .amenity-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .menu-category-title { font-size: 1.1rem; }
+
+      .cta-section { padding: 50px 20px; }
+      .cta-heading { font-size: 1.5rem; }
+    }
+  </style>
+
+  <script slot="scripts">
+    // Menu Toggle
+    document.querySelectorAll('.menu-btn').forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        const menu = e.target.getAttribute('data-menu');
+
+        // Hide all menus and remove active class from buttons
+        document.querySelectorAll('.menu-content').forEach((m) => {
+          m.classList.remove('menu-content--active');
+        });
+        document.querySelectorAll('.menu-btn').forEach((b) => {
+          b.classList.remove('menu-btn--active');
+        });
+
+        // Show selected menu and add active class to button
+        document.getElementById(menu).classList.add('menu-content--active');
+        e.target.classList.add('menu-btn--active');
+      });
+    });
+
+    // Firebase Cloud Functions form submission
+    const form = document.getElementById('stayForm');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = form.querySelector('button[type="submit"]');
+      const origText = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData);
+
+      try {
+        const res = await fetch('https://us-central1-hobackclub-website.cloudfunctions.net/submitReservation', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+        if (!res.ok) throw new Error('Failed');
+
+        form.innerHTML = `<div style="text-align:center;padding:48px 24px;">
+          <h3 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:28px;font-weight:300;color:#1e2d3a;margin-bottom:16px;">Thank You</h3>
+          <p style="font-family:'Lato',Helvetica,sans-serif;font-size:15px;color:#666;line-height:1.7;">We've received your reservation request and will contact you shortly to confirm your stay.</p>
+        </div>`;
+      } catch {
+        btn.disabled = false;
+        btn.textContent = origText;
+        let errEl = form.querySelector('.form-error');
+        if (!errEl) {
+          errEl = document.createElement('p');
+          errEl.className = 'form-error';
+          errEl.style.cssText = 'color:#c0392b;font-size:14px;margin-top:12px;text-align:center;';
+          btn.parentElement.appendChild(errEl);
+        }
+        errEl.textContent = 'Something went wrong. Please try again or call (307) 249-1000.';
+      }
+    });
+  </script>
+</BaseLayout>

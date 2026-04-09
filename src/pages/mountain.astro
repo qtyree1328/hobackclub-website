@@ -1,0 +1,1163 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroStandard from '../components/HeroStandard.astro';
+---
+
+<BaseLayout title="The Mountain" description="Live mountain conditions, webcams, and trail information for Jackson Hole Mountain Resort.">
+  <!-- SECTION 1: Hero with Gradient -->
+  <HeroStandard
+    title="The Mountain"
+    subtitle="Jackson Hole Mountain Resort"
+    imageId="100100"
+    height="45vh"
+    gradient={true}
+    overlay={0.5}
+  />
+
+  <!-- SECTION 2: Weather Bar -->
+  <section class="weather-section">
+    <div class="weather-container">
+      <div class="weather-header">
+        <h3>Weather This Week</h3>
+      </div>
+      <div class="weather-days">
+        <div class="weather-day">
+          <div class="weather-day-name">Mon</div>
+          <div class="weather-day-date">Apr 9</div>
+          <div class="weather-day-temp">38°</div>
+        </div>
+        <div class="weather-day">
+          <div class="weather-day-name">Tue</div>
+          <div class="weather-day-date">Apr 10</div>
+          <div class="weather-day-temp">42°</div>
+        </div>
+        <div class="weather-day">
+          <div class="weather-day-name">Wed</div>
+          <div class="weather-day-date">Apr 11</div>
+          <div class="weather-day-temp">35°</div>
+        </div>
+        <div class="weather-day">
+          <div class="weather-day-name">Thu</div>
+          <div class="weather-day-date">Apr 12</div>
+          <div class="weather-day-temp">40°</div>
+        </div>
+        <div class="weather-day">
+          <div class="weather-day-name">Fri</div>
+          <div class="weather-day-date">Apr 13</div>
+          <div class="weather-day-temp">44°</div>
+        </div>
+      </div>
+      <div class="weather-button">
+        <a href="#mountain-report" class="btn btn--outline">Full Report</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: Mountain Report Dashboard -->
+  <section class="section section--paper mountain-report-section" id="mountain-report">
+    <div class="container">
+      <h2 class="section-heading">Mountain Report</h2>
+      <div class="report-grid">
+        <!-- Column 1: Snow & Weather Data -->
+        <div class="report-column">
+          <div class="report-card">
+            <h3 class="report-card-title">Snow Totals</h3>
+            <div class="report-table">
+              <div class="report-row">
+                <span class="report-label">24hr</span>
+                <span class="report-value">4"</span>
+              </div>
+              <div class="report-row">
+                <span class="report-label">Season</span>
+                <span class="report-value">342"</span>
+              </div>
+              <div class="report-row">
+                <span class="report-label">Summit Depth</span>
+                <span class="report-value">87"</span>
+              </div>
+              <div class="report-row">
+                <span class="report-label">Mid-Mountain</span>
+                <span class="report-value">62"</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="report-card">
+            <h3 class="report-card-title">Current Weather</h3>
+            <div class="report-table">
+              <div class="report-row">
+                <span class="report-label">Summit</span>
+                <span class="report-value">12°F / 25mph</span>
+              </div>
+              <div class="report-row">
+                <span class="report-label">Mid-Mountain</span>
+                <span class="report-value">18°F / 15mph</span>
+              </div>
+              <div class="report-row">
+                <span class="report-label">Base</span>
+                <span class="report-value">24°F / 8mph</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 2: Tram & Lift Status -->
+        <div class="report-column">
+          <div class="report-card">
+            <h3 class="report-card-title">Tram Status</h3>
+            <div class="status-badge status-badge--open">
+              <span class="status-dot"></span>
+              OPEN
+            </div>
+          </div>
+
+          <div class="report-card">
+            <h3 class="report-card-title">Mountain Status</h3>
+            <div class="status-list">
+              <div class="status-row">
+                <span class="status-label">Lifts</span>
+                <div class="progress-ring">
+                  <svg viewBox="0 0 120 120" width="80" height="80">
+                    <circle cx="60" cy="60" r="54" class="progress-ring-circle" stroke-dasharray="339.29" stroke-dashoffset="0"></circle>
+                  </svg>
+                  <span class="progress-text">13/13</span>
+                </div>
+              </div>
+              <div class="status-row">
+                <span class="status-label">Trails</span>
+                <div class="progress-ring">
+                  <svg viewBox="0 0 120 120" width="80" height="80">
+                    <circle cx="60" cy="60" r="54" class="progress-ring-circle--amber" stroke-dasharray="339.29" stroke-dashoffset="25.45"></circle>
+                  </svg>
+                  <span class="progress-text">117/130</span>
+                </div>
+              </div>
+              <div class="status-row">
+                <span class="status-label">Terrain Parks</span>
+                <div class="progress-ring">
+                  <svg viewBox="0 0 120 120" width="80" height="80">
+                    <circle cx="60" cy="60" r="54" class="progress-ring-circle--amber" stroke-dasharray="339.29" stroke-dashoffset="28.27"></circle>
+                  </svg>
+                  <span class="progress-text">3/4</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 3: Webcam -->
+        <div class="report-column">
+          <div class="report-card">
+            <h3 class="report-card-title">Live Webcam</h3>
+            <div class="webcam-container">
+              <img
+                src="https://cams.jacksonhole.com/webcam/codybowl.jpg"
+                alt="Cody Bowl live webcam"
+                style="width: 100%; height: 200px; object-fit: cover; border-radius: 4px; display: block;"
+              />
+              <div class="live-badge">
+                <span class="live-dot"></span>
+                LIVE
+              </div>
+            </div>
+            <p class="webcam-label">Cody Bowl</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: Mountain Webcams -->
+  <section class="section section--dark webcams-section">
+    <div class="container">
+      <h2 class="section-heading">Live From the Mountain</h2>
+
+      <!-- Live Streams -->
+      <div class="webcam-group">
+        <h3 class="webcam-group-title">Live Streams</h3>
+        <div class="webcam-grid webcam-grid--2col">
+          <div class="webcam-embed">
+            <iframe
+              width="100%"
+              height="400"
+              src="https://www.youtube.com/embed/9kK7RfM3eSc?autoplay=1&mute=1&loop=1&playlist=9kK7RfM3eSc"
+              allow="autoplay"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="webcam-embed">
+            <iframe
+              width="100%"
+              height="400"
+              src="https://www.youtube.com/embed/cOcHcIDbi1o?autoplay=1&mute=1&loop=1&playlist=cOcHcIDbi1o"
+              allow="autoplay"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panoramic Views -->
+      <div class="webcam-group">
+        <h3 class="webcam-group-title">Panoramic Views</h3>
+        <div class="webcam-grid webcam-grid--2col">
+          <div class="panoramic-embed">
+            <iframe
+              width="100%"
+              height="400"
+              src="https://roundshot.com/embed?id=12a4b2c24cd515e0a115d4a0f59ef7f8"
+              allow="autoplay"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="panoramic-embed">
+            <iframe
+              width="100%"
+              height="400"
+              src="https://roundshot.com/embed?id=6f7dc91857e22fe329e8bdeef5ee5750"
+              allow="autoplay"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mountain Cameras -->
+      <div class="webcam-group">
+        <h3 class="webcam-group-title">Mountain Cameras</h3>
+        <div class="webcam-grid webcam-grid--3col">
+          <div class="camera-card">
+            <img
+              src="https://cams.jacksonhole.com/webcam/corbetscouloir.jpg"
+              alt="Corbett's Couloir"
+              style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; display: block;"
+            />
+            <div class="camera-label">
+              <span class="camera-name">Corbett's Couloir</span>
+              <span class="live-indicator"><span class="live-dot"></span></span>
+            </div>
+          </div>
+          <div class="camera-card">
+            <img
+              src="https://cams.jacksonhole.com/webcam/codybowl.jpg"
+              alt="Cody Bowl"
+              style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; display: block;"
+            />
+            <div class="camera-label">
+              <span class="camera-name">Cody Bowl</span>
+              <span class="live-indicator"><span class="live-dot"></span></span>
+            </div>
+          </div>
+          <div class="camera-card">
+            <img
+              src="https://cams.jacksonhole.com/webcam/guncam.jpg"
+              alt="Gun Camera"
+              style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; display: block;"
+            />
+            <div class="camera-label">
+              <span class="camera-name">Gun Camera</span>
+              <span class="live-indicator"><span class="live-dot"></span></span>
+            </div>
+          </div>
+          <div class="camera-card">
+            <img
+              src="https://cams.jacksonhole.com/webcam/commons.jpg"
+              alt="Commons"
+              style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; display: block;"
+            />
+            <div class="camera-label">
+              <span class="camera-name">Commons</span>
+              <span class="live-indicator"><span class="live-dot"></span></span>
+            </div>
+          </div>
+          <div class="camera-card">
+            <img
+              src="https://cams.jacksonhole.com/webcam/SouthHoback.jpg"
+              alt="South Hoback"
+              style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; display: block;"
+            />
+            <div class="camera-label">
+              <span class="camera-name">South Hoback</span>
+              <span class="live-indicator"><span class="live-dot"></span></span>
+            </div>
+          </div>
+          <div class="camera-card">
+            <img
+              src="https://cams.jacksonhole.com/webcam/casperchair.jpg"
+              alt="Casper Chair"
+              style="width: 100%; height: 250px; object-fit: cover; border-radius: 4px; display: block;"
+            />
+            <div class="camera-label">
+              <span class="camera-name">Casper Chair</span>
+              <span class="live-indicator"><span class="live-dot"></span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: Trail Explorer -->
+  <section class="section section--paper trail-section">
+    <div class="container">
+      <h2 class="section-heading">Trail Explorer</h2>
+      <p class="trail-description">
+        Navigate 130+ trails across our 4,139-acre ski area. Choose from beginner-friendly cruisers to expert-only descents. Use our interactive map to plan your day.
+      </p>
+
+      <div class="mapbox-placeholder">
+        <div class="placeholder-content">
+          <p class="placeholder-text">Interactive Trail Map</p>
+          <p class="placeholder-note">Requires Mapbox API integration</p>
+        </div>
+      </div>
+
+      <div class="trail-legend">
+        <h3 class="legend-title">Difficulty Levels</h3>
+        <div class="legend-items">
+          <div class="legend-item">
+            <span class="legend-marker legend-marker--green"></span>
+            <span class="legend-label">Easy</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-marker legend-marker--blue"></span>
+            <span class="legend-label">Intermediate</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-marker legend-marker--black"></span>
+            <span class="legend-label">Advanced</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-marker legend-marker--orange"></span>
+            <span class="legend-label">Freeride</span>
+          </div>
+          <div class="legend-item">
+            <span class="legend-marker legend-marker--dashed"></span>
+            <span class="legend-label">Lift</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: Flyover Video -->
+  <section class="flyover-section">
+    <div class="flyover-container">
+      <h2 class="flyover-heading">Jackson Flyover to Hoback</h2>
+      <video
+        id="flyoverVideo"
+        class="flyover-video"
+        muted
+        loop
+        preload="metadata"
+        style="max-height: 85vh; width: 100%; object-fit: cover; display: block;"
+      >
+        <source src="/videos/flyover-hq.mp4" type="video/mp4" />
+      </video>
+    </div>
+  </section>
+
+  <!-- SECTION 7: Valley Explorer -->
+  <section class="section section--paper valley-section">
+    <div class="container">
+      <div class="valley-grid">
+        <!-- Accordion -->
+        <div class="accordion-column">
+          <div class="location-accordion">
+            <div class="accordion-item" data-location="1">
+              <div class="accordion-trigger">
+                <span class="location-number">1</span>
+                <span class="location-name">Grand Teton National Park</span>
+              </div>
+              <div class="accordion-content">
+                <img
+                  src="https://hobackclub.com/images/dynamic/getImage.gif?ID=100100"
+                  alt="Grand Teton"
+                  style="width: 100%; height: 200px; object-fit: cover; border-radius: 4px; display: block; margin-bottom: 12px;"
+                />
+                <p class="location-detail">
+                  Majestic peaks and pristine wilderness. Hike, climb, or simply absorb the raw alpine beauty of one of America's greatest mountain ranges.
+                </p>
+              </div>
+            </div>
+
+            <div class="accordion-item" data-location="2">
+              <div class="accordion-trigger">
+                <span class="location-number">2</span>
+                <span class="location-name">Hoback Club</span>
+              </div>
+              <div class="accordion-content">
+                <img
+                  src="https://hobackclub.com/images/dynamic/getImage.gif?ID=100091"
+                  alt="Hoback Club"
+                  style="width: 100%; height: 200px; object-fit: cover; border-radius: 4px; display: block; margin-bottom: 12px;"
+                />
+                <p class="location-detail">
+                  Your luxury mountain sanctuary. Private residences, world-class amenities, and unmatched alpine hospitality.
+                </p>
+              </div>
+            </div>
+
+            <div class="accordion-item" data-location="3">
+              <div class="accordion-trigger">
+                <span class="location-number">3</span>
+                <span class="location-name">Snake River</span>
+              </div>
+              <div class="accordion-content">
+                <img
+                  src="https://hobackclub.com/images/dynamic/getImage.gif?ID=100103"
+                  alt="Snake River"
+                  style="width: 100%; height: 200px; object-fit: cover; border-radius: 4px; display: block; margin-bottom: 12px;"
+                />
+                <p class="location-detail">
+                  World-renowned for fly fishing and river sports. Crystal-clear waters against a backdrop of towering peaks.
+                </p>
+              </div>
+            </div>
+
+            <div class="accordion-item" data-location="4">
+              <div class="accordion-trigger">
+                <span class="location-number">4</span>
+                <span class="location-name">Jackson Hole Town</span>
+              </div>
+              <div class="accordion-content">
+                <img
+                  src="https://hobackclub.com/images/dynamic/getImage.gif?ID=100104"
+                  alt="Jackson"
+                  style="width: 100%; height: 200px; object-fit: cover; border-radius: 4px; display: block; margin-bottom: 12px;"
+                />
+                <p class="location-detail">
+                  Charming mountain town with world-class dining, galleries, and vibrant après-ski culture. The pulse of Jackson Hole.
+                </p>
+              </div>
+            </div>
+
+            <div class="accordion-item" data-location="5">
+              <div class="accordion-trigger">
+                <span class="location-number">5</span>
+                <span class="location-name">Yellowstone National Park</span>
+              </div>
+              <div class="accordion-content">
+                <img
+                  src="https://hobackclub.com/images/dynamic/getImage.gif?ID=100100"
+                  alt="Yellowstone"
+                  style="width: 100%; height: 200px; object-fit: cover; border-radius: 4px; display: block; margin-bottom: 12px;"
+                />
+                <p class="location-detail">
+                  America's first national park. Geysers, thermal features, wildlife, and endless exploration just an hour away.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Map Placeholder -->
+        <div class="map-column">
+          <div class="mapbox-placeholder">
+            <div class="placeholder-content">
+              <p class="placeholder-text">Valley Explorer Map</p>
+              <p class="placeholder-note">Requires Mapbox API integration</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: Image Grid -->
+  <section class="section section--white image-grid-section">
+    <div class="container">
+      <h2 class="section-heading">Mountain Beauty</h2>
+      <div class="image-grid">
+        <img
+          src="https://hobackclub.com/images/dynamic/getImage.gif?ID=100100"
+          alt="Mountain vista"
+          style="width: 100%; height: 400px; object-fit: cover; border-radius: 4px; display: block;"
+        />
+        <img
+          src="https://hobackclub.com/images/dynamic/getImage.gif?ID=100103"
+          alt="Alpine landscape"
+          style="width: 100%; height: 400px; object-fit: cover; border-radius: 4px; display: block;"
+        />
+        <img
+          src="https://hobackclub.com/images/dynamic/getImage.gif?ID=100104"
+          alt="Peak view"
+          style="width: 100%; height: 400px; object-fit: cover; border-radius: 4px; display: block;"
+        />
+      </div>
+    </div>
+  </section>
+
+  <style>
+    /* ── Weather Section ── */
+    .weather-section {
+      background: var(--white);
+      padding: 40px;
+      border-bottom: 1px solid var(--divider);
+    }
+    .weather-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .weather-header {
+      margin-bottom: 30px;
+    }
+    .weather-header h3 {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 300;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink);
+    }
+    .weather-days {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 30px;
+      gap: 15px;
+    }
+    .weather-day {
+      text-align: center;
+      flex: 1;
+    }
+    .weather-day-name {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+    .weather-day-date {
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+    }
+    .weather-day-temp {
+      font-family: var(--sans);
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--ink);
+    }
+    .weather-button {
+      text-align: center;
+    }
+
+    /* ── Mountain Report Section ── */
+    .mountain-report-section { }
+    .section-heading {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 300;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 60px;
+      color: var(--ink);
+      text-align: center;
+    }
+    .report-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+    .report-column { }
+    .report-card {
+      background: var(--white);
+      padding: 30px;
+      border-radius: 4px;
+      margin-bottom: 20px;
+      border: 1px solid var(--divider);
+    }
+    .report-card-title {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 300;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+    .report-table { }
+    .report-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--divider);
+    }
+    .report-row:last-child {
+      border-bottom: none;
+    }
+    .report-label {
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--text-secondary);
+    }
+    .report-value {
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    /* ── Status Badge & Rings ── */
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 24px;
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .status-badge--open {
+      background: rgba(76, 175, 80, 0.1);
+      color: #4caf50;
+    }
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #4caf50;
+      animation: livePulse 2s infinite;
+    }
+
+    .status-list {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .status-row {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .status-label {
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      min-width: 100px;
+    }
+    .progress-ring {
+      position: relative;
+      width: 80px;
+      height: 80px;
+    }
+    .progress-ring svg {
+      transform: rotate(-90deg);
+    }
+    .progress-ring-circle {
+      stroke: #4caf50;
+      stroke-width: 6;
+      fill: none;
+      stroke-linecap: round;
+    }
+    .progress-ring-circle--amber {
+      stroke: #ff9800;
+      stroke-width: 6;
+      fill: none;
+      stroke-linecap: round;
+    }
+    .progress-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--ink);
+      text-align: center;
+      width: 100%;
+    }
+
+    /* ── Webcam Container ── */
+    .webcam-container {
+      position: relative;
+      margin-bottom: 12px;
+    }
+    .live-badge {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(244, 67, 54, 0.9);
+      color: var(--white);
+      padding: 4px 8px;
+      border-radius: 3px;
+      font-family: var(--sans);
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .live-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--white);
+      animation: livePulse 1.5s infinite;
+    }
+    .webcam-label {
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      margin-top: 8px;
+      text-align: center;
+    }
+
+    /* ── Webcams Section ── */
+    .webcams-section { }
+    .webcam-group {
+      margin-bottom: 60px;
+    }
+    .webcam-group:last-child {
+      margin-bottom: 0;
+    }
+    .webcam-group-title {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 300;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--white);
+      margin-bottom: 30px;
+    }
+    .webcam-grid {
+      display: grid;
+      gap: 20px;
+    }
+    .webcam-grid--2col {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .webcam-grid--3col {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .webcam-embed,
+    .panoramic-embed {
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    /* ── Camera Cards ── */
+    .camera-card {
+      position: relative;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .camera-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+      padding: 20px 12px 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .camera-name {
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .live-indicator {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* ── Trail Section ── */
+    .trail-section { }
+    .trail-description {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      max-width: 800px;
+      margin: 0 auto 40px;
+      text-align: center;
+    }
+    .mapbox-placeholder {
+      width: 100%;
+      height: 500px;
+      background: linear-gradient(135deg, #f5f5f5, #eeeeee);
+      border: 2px dashed var(--divider);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+    .placeholder-content {
+      text-align: center;
+    }
+    .placeholder-text {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .placeholder-note {
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* ── Trail Legend ── */
+    .trail-legend {
+      text-align: center;
+      padding: 30px;
+      background: var(--white);
+      border-radius: 4px;
+      border: 1px solid var(--divider);
+    }
+    .legend-title {
+      font-family: var(--serif);
+      font-size: 0.95rem;
+      font-weight: 300;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink);
+      margin-bottom: 15px;
+    }
+    .legend-items {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .legend-marker {
+      width: 12px;
+      height: 12px;
+      border-radius: 2px;
+    }
+    .legend-marker--green {
+      background: #4caf50;
+    }
+    .legend-marker--blue {
+      background: #2196f3;
+    }
+    .legend-marker--black {
+      background: #000;
+    }
+    .legend-marker--orange {
+      background: #ff9800;
+    }
+    .legend-marker--dashed {
+      border: 2px dashed var(--accent-gray);
+    }
+    .legend-label {
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+
+    /* ── Flyover Section ── */
+    .flyover-section {
+      position: relative;
+      background: var(--ink);
+      padding: 0;
+      overflow: hidden;
+    }
+    .flyover-container {
+      position: relative;
+      width: 100%;
+    }
+    .flyover-heading {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--white);
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    /* ── Valley Section ── */
+    .valley-section { }
+    .valley-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .accordion-column { }
+    .location-accordion { }
+    .accordion-item {
+      margin-bottom: 20px;
+      border-radius: 4px;
+      overflow: hidden;
+      background: var(--white);
+      border: 1px solid var(--divider);
+    }
+    .accordion-trigger {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 20px;
+      cursor: pointer;
+      background: var(--white);
+      transition: background 0.3s ease;
+    }
+    .accordion-trigger:hover {
+      background: var(--paper);
+    }
+    .location-number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--ink);
+      color: var(--white);
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .location-name {
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .accordion-content {
+      display: none;
+      padding: 20px;
+      background: var(--paper);
+      border-top: 1px solid var(--divider);
+    }
+    .accordion-content.is-active {
+      display: block;
+      animation: fadeUp 0.3s ease;
+    }
+    .location-detail {
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .map-column { }
+
+    /* ── Image Grid Section ── */
+    .image-grid-section { }
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    /* ── Mobile Responsive ── */
+    @media (max-width: 768px) {
+      .weather-section {
+        padding: 30px 20px;
+      }
+
+      .weather-header h3 {
+        font-size: 1.2rem;
+      }
+
+      .weather-days {
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .weather-day {
+        min-width: 60px;
+      }
+
+      .weather-day-name {
+        font-size: 0.65rem;
+      }
+
+      .weather-day-temp {
+        font-size: 1.1rem;
+      }
+
+      .report-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .report-card {
+        padding: 20px;
+        margin-bottom: 15px;
+      }
+
+      .report-card-title {
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+      }
+
+      .report-row {
+        padding: 8px 0;
+        font-size: 0.85rem;
+      }
+
+      .status-label {
+        min-width: 80px;
+        font-size: 0.75rem;
+      }
+
+      .progress-ring {
+        width: 60px;
+        height: 60px;
+      }
+
+      .progress-text {
+        font-size: 0.65rem;
+      }
+
+      .webcam-grid--2col {
+        grid-template-columns: 1fr;
+      }
+
+      .webcam-grid--3col {
+        grid-template-columns: 1fr;
+      }
+
+      .valley-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .image-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .image-grid img {
+        height: 250px !important;
+      }
+
+      .mapbox-placeholder {
+        height: 300px;
+      }
+
+      .location-name {
+        font-size: 0.85rem;
+      }
+
+      .accordion-trigger {
+        padding: 16px;
+        gap: 12px;
+      }
+
+      .location-number {
+        width: 32px;
+        height: 32px;
+        font-size: 0.75rem;
+      }
+
+      .accordion-content {
+        padding: 16px;
+      }
+
+      .location-detail {
+        font-size: 0.85rem;
+      }
+
+      .flyover-heading {
+        font-size: 1.4rem;
+        padding: 0 20px;
+      }
+
+      .section-heading {
+        font-size: 1.5rem;
+        margin-bottom: 40px;
+      }
+
+      .legend-items {
+        gap: 15px;
+        justify-content: flex-start;
+      }
+
+      .legend-title {
+        font-size: 0.9rem;
+      }
+
+      .legend-label {
+        font-size: 0.75rem;
+      }
+    }
+  </style>
+
+  <script slot="scripts">
+    // Flyover Video: Start playing on scroll into view
+    const flyoverVideo = document.getElementById('flyoverVideo');
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            flyoverVideo.play();
+          } else {
+            flyoverVideo.pause();
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    if (flyoverVideo) {
+      observer.observe(flyoverVideo);
+    }
+
+    // Valley Accordion
+    const accordionItems = document.querySelectorAll('.accordion-item');
+
+    accordionItems.forEach((item) => {
+      const trigger = item.querySelector('.accordion-trigger');
+      const content = item.querySelector('.accordion-content');
+
+      trigger.addEventListener('click', () => {
+        // Close all other items
+        accordionItems.forEach((otherItem) => {
+          if (otherItem !== item) {
+            otherItem.querySelector('.accordion-content').classList.remove('is-active');
+          }
+        });
+
+        // Toggle current item
+        content.classList.toggle('is-active');
+      });
+    });
+
+    // SVG Progress Ring Animation
+    const rings = document.querySelectorAll('.progress-ring-circle, .progress-ring-circle--amber');
+    rings.forEach((circle) => {
+      const circumference = 2 * Math.PI * 54;
+      circle.style.strokeDasharray = circumference;
+
+      // Animate on load
+      setTimeout(() => {
+        circle.style.transition = 'stroke-dashoffset 2s ease';
+      }, 100);
+    });
+  </script>
+</BaseLayout>

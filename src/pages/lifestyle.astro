@@ -1,0 +1,559 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroStandard from '../components/HeroStandard.astro';
+---
+
+<BaseLayout title="Lifestyle" description="Explore year-round activities and experiences in Jackson Hole.">
+  <!-- Season Hero Panel -->
+  <section class="season-hero">
+    <div class="season-panel" data-season="winter">
+      <img
+        src="https://www.datocms-assets.com/50871/1680193117-skier-winter-promo-box-ajimmerson_powder_12-3-2022-1103-jpg.jpg"
+        alt="Winter skiing"
+        class="season-image"
+      />
+      <div class="season-overlay"></div>
+      <div class="season-content">
+        <h2 class="season-name">Winter</h2>
+        <p class="season-tagline">Pristine powder and legendary terrain</p>
+      </div>
+    </div>
+
+    <div class="season-panel" data-season="spring">
+      <img
+        src="https://hobackclub.com/images/dynamic/getImage.gif?ID=100077"
+        alt="Spring skiing"
+        class="season-image"
+      />
+      <div class="season-overlay"></div>
+      <div class="season-content">
+        <h2 class="season-name">Spring</h2>
+        <p class="season-tagline">Last runs and alpine awakening</p>
+      </div>
+    </div>
+
+    <div class="season-panel" data-season="summer">
+      <img
+        src="https://hobackclub.com/images/dynamic/getImage.gif?ID=100120"
+        alt="Summer trails"
+        class="season-image"
+      />
+      <div class="season-overlay"></div>
+      <div class="season-content">
+        <h2 class="season-name">Summer</h2>
+        <p class="season-tagline">Sun-drenched days and endless adventure</p>
+      </div>
+    </div>
+
+    <div class="season-panel" data-season="fall">
+      <img
+        src="https://realestate.theclearcreekgroup.com/wp-content/uploads/sites/2/2016/09/Fall-Colors-Jackson-Hole-1030x579.jpg"
+        alt="Fall aspen colors"
+        class="season-image"
+      />
+      <div class="season-overlay"></div>
+      <div class="season-content">
+        <h2 class="season-name">Fall</h2>
+        <p class="season-tagline">Golden aspens and quiet grandeur</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Intro Section -->
+  <section class="section section--paper">
+    <div class="container">
+      <div style="max-width: 700px; margin: 0 auto; text-align: center;">
+        <h2 style="font-size: 2.4rem; margin-bottom: 24px;">A Year-Round Destination</h2>
+        <p style="font-size: 1rem; line-height: 1.7; color: var(--text-secondary);">
+          Jackson Hole offers world-class experiences in every season. From pristine powder runs and backcountry adventures in winter to world-class fly-fishing and hiking in summer, Hoback Club members have exclusive access to the best the Tetons have to offer. Our concierge team can curate unforgettable experiences tailored to your preferences throughout the year.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Activity Toggle -->
+  <section class="section section--white">
+    <div class="container">
+      <div class="toggle-group">
+        <button class="toggle-btn toggle-btn--active" data-toggle="winter">Winter Activities</button>
+        <button class="toggle-btn" data-toggle="summer">Summer Activities</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Winter Activities -->
+  <section class="section section--white activity-section" id="winter-activities">
+    <div class="container">
+      <div style="max-width: 700px; margin: 0 auto 60px; text-align: center;">
+        <p style="font-size: 1rem; line-height: 1.7; color: var(--text-secondary);">
+          Experience world-class winter sports on some of North America's most legendary terrain. From steep backcountry to pristine groomers, Jackson Hole Mountain Resort and the surrounding wilderness offer unmatched adventure.
+        </p>
+      </div>
+
+      <div style="background: var(--tan); padding: 24px; border-radius: 4px; margin-bottom: 60px; max-width: 700px; margin-left: auto; margin-right: auto; text-align: center;">
+        <p style="font-size: 0.95rem; color: var(--text);">
+          <strong>Our concierge team can arrange any of these activities for you.</strong><br />
+          Contact us at <strong>(307) 249-1000</strong>
+        </p>
+      </div>
+
+      <div class="activity-grid">
+        <div class="activity-card" style="--delay: 0;">
+          <div class="activity-image">
+            <img
+              src="https://hobackclub.com/images/dynamic/getImage.gif?ID=100100"
+              alt="Ski passes"
+            />
+          </div>
+          <div class="activity-overlay"></div>
+          <div class="activity-info">
+            <h3 class="activity-title">Ski Passes</h3>
+            <p class="activity-description">Access to 2,500+ acres of legendary terrain at Jackson Hole Mountain Resort</p>
+          </div>
+        </div>
+
+        <div class="activity-card" style="--delay: 100ms;">
+          <div class="activity-image">
+            <img
+              src="https://hobackclub.com/images/dynamic/getImage.gif?ID=100104"
+              alt="Heli skiing"
+            />
+          </div>
+          <div class="activity-overlay"></div>
+          <div class="activity-info">
+            <h3 class="activity-title">Heli Skiing</h3>
+            <p class="activity-description">Private helicopter access to untouched backcountry powder</p>
+          </div>
+        </div>
+
+        <div class="activity-card" style="--delay: 200ms;">
+          <div class="activity-image">
+            <img
+              src="https://hobackclub.com/images/dynamic/getImage.gif?ID=100103"
+              alt="Backcountry ski guiding"
+            />
+          </div>
+          <div class="activity-overlay"></div>
+          <div class="activity-info">
+            <h3 class="activity-title">Backcountry Ski Guiding</h3>
+            <p class="activity-description">Expert-guided tours through Teton backcountry</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Summer Activities -->
+  <section class="section section--white activity-section" id="summer-activities" style="display: none;">
+    <div class="container">
+      <div style="max-width: 700px; margin: 0 auto 60px; text-align: center;">
+        <p style="font-size: 1rem; line-height: 1.7; color: var(--text-secondary);">
+          Summer in Jackson Hole is an invitation to explore pristine wilderness, world-class fishing, and spectacular alpine scenery. Make the most of endless daylight and perfect weather.
+        </p>
+      </div>
+
+      <div class="activity-grid">
+        <div class="activity-card" style="--delay: 0;">
+          <div class="activity-image">
+            <img
+              src="https://hobackclub.com/images/dynamic/getImage.gif?ID=100119"
+              alt="Fly-fishing"
+            />
+          </div>
+          <div class="activity-overlay"></div>
+          <div class="activity-info">
+            <h3 class="activity-title">Fly-Fishing</h3>
+            <p class="activity-description">World-class fly-fishing on the Snake River and local streams</p>
+          </div>
+        </div>
+
+        <div class="activity-card" style="--delay: 100ms;">
+          <div class="activity-image">
+            <img
+              src="https://hobackclub.com/images/dynamic/getImage.gif?ID=100117"
+              alt="Horseback riding"
+            />
+          </div>
+          <div class="activity-overlay"></div>
+          <div class="activity-info">
+            <h3 class="activity-title">Horseback Riding</h3>
+            <p class="activity-description">Trail rides through Grand Teton National Park</p>
+          </div>
+        </div>
+
+        <div class="activity-card" style="--delay: 200ms;">
+          <div class="activity-image">
+            <img
+              src="https://hobackclub.com/images/dynamic/getImage.gif?ID=100120"
+              alt="Hiking"
+            />
+          </div>
+          <div class="activity-overlay"></div>
+          <div class="activity-info">
+            <h3 class="activity-title">Hiking</h3>
+            <p class="activity-description">Explore hundreds of miles of trails with stunning alpine views</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Parallax Divider -->
+  <section
+    class="parallax-divider"
+    style="background-image: url('https://hobackclub.com/images/dynamic/getImage.gif?ID=100099');"
+  >
+    <div class="parallax-overlay"></div>
+  </section>
+
+  <!-- Contact CTA -->
+  <section class="section section--tan">
+    <div class="container">
+      <div style="max-width: 700px; margin: 0 auto; text-align: center;">
+        <h2 style="font-size: 2.2rem; margin-bottom: 24px;">Plan Your Jackson Hole Experience</h2>
+        <p style="font-size: 1rem; line-height: 1.7; color: var(--text); margin-bottom: 40px;">
+          Let our concierge team curate the perfect adventure. Whether you're seeking adrenaline or tranquility, our team is ready to create unforgettable memories.
+        </p>
+        <a href="/contact" class="btn btn--primary">Contact Our Concierge</a>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    /* Season Hero */
+    .season-hero {
+      display: flex;
+      min-height: 100vh;
+      overflow: hidden;
+      background: var(--ink);
+    }
+
+    .season-panel {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: flex 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      min-width: 25%;
+    }
+
+    .season-panel:hover {
+      flex: 1.6;
+    }
+
+    .season-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .season-panel:hover .season-image {
+      transform: scale(1.05);
+    }
+
+    .season-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(30, 45, 58, 0.5);
+      transition: background 0.6s ease;
+    }
+
+    .season-panel:hover .season-overlay {
+      background: rgba(30, 45, 58, 0.35);
+    }
+
+    .season-content {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      padding: 20px;
+    }
+
+    .season-name {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      margin: 0 0 16px 0;
+      text-transform: uppercase;
+    }
+
+    .season-tagline {
+      font-size: 1rem;
+      font-weight: 300;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+      letter-spacing: 0.05em;
+    }
+
+    .season-panel:hover .season-tagline {
+      opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+      .season-hero {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 50vh 50vh;
+        min-height: auto;
+      }
+
+      .season-panel {
+        min-width: unset;
+        flex: none;
+      }
+
+      .season-panel:hover {
+        flex: none;
+      }
+
+      .season-name {
+        font-size: 1.8rem;
+      }
+
+      .season-tagline {
+        display: none;
+      }
+    }
+
+    /* Toggle Group */
+    .toggle-group {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 40px 0;
+    }
+
+    .toggle-btn {
+      padding: 12px 32px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      background: transparent;
+      color: var(--ink);
+      border: 2px solid var(--ink);
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .toggle-btn--active {
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .toggle-btn:hover {
+      background: var(--ink);
+      color: #fff;
+    }
+
+    /* Activity Cards */
+    .activity-section {
+      animation: fadeIn 0.6s ease;
+    }
+
+    .activity-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .activity-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 4px;
+      cursor: pointer;
+      animation: fadeInUp 0.8s ease both;
+      animation-delay: var(--delay);
+    }
+
+    .activity-image {
+      position: relative;
+      width: 100%;
+      padding-bottom: 75%;
+      overflow: hidden;
+    }
+
+    .activity-image img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .activity-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(30,45,58,0.3) 0%, rgba(30,45,58,0.7) 100%);
+      transition: opacity 0.6s ease;
+    }
+
+    .activity-info {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 40px 24px 24px;
+      color: #fff;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+
+    .activity-card:hover .activity-image img {
+      transform: scale(1.1);
+    }
+
+    .activity-card:hover .activity-info {
+      opacity: 1;
+    }
+
+    .activity-title {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: 300;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    .activity-description {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    @media (max-width: 768px) {
+      .activity-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .toggle-group {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .toggle-btn {
+        width: 100%;
+      }
+    }
+
+    /* Parallax Divider */
+    .parallax-divider {
+      min-height: 45vh;
+      position: relative;
+      background-attachment: fixed;
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+    }
+
+    .parallax-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(30, 45, 58, 0.6);
+    }
+
+    @supports not (background-attachment: fixed) {
+      .parallax-divider {
+        background-attachment: scroll;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .parallax-divider {
+        min-height: 30vh;
+        background-attachment: scroll;
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+
+  <script>
+    // Toggle functionality
+    const toggleBtns = document.querySelectorAll('.toggle-btn');
+    const winterSection = document.getElementById('winter-activities');
+    const summerSection = document.getElementById('summer-activities');
+
+    toggleBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        toggleBtns.forEach(b => b.classList.remove('toggle-btn--active'));
+        btn.classList.add('toggle-btn--active');
+
+        if (btn.dataset.toggle === 'winter') {
+          winterSection.style.display = 'block';
+          summerSection.style.display = 'none';
+        } else {
+          winterSection.style.display = 'none';
+          summerSection.style.display = 'block';
+        }
+      });
+    });
+
+    // Intersection Observer for scroll reveals
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    // Observe all cards in activity sections
+    document.querySelectorAll('.activity-card').forEach(card => {
+      observer.observe(card);
+    });
+
+    // 3D tilt effect on card hover
+    document.querySelectorAll('.activity-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const rotateX = ((y - rect.height / 2) / rect.height) * 15;
+        const rotateY = ((x - rect.width / 2) / rect.width) * -15;
+
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+      });
+    });
+  </script>
+</BaseLayout>

@@ -1,0 +1,102 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Member Login">
+  <section class="login-redirect">
+    <div class="login-content">
+      <img src="/images/logo-footer.svg" alt="Hoback Club" class="login-logo" />
+      <h1>Member Portal</h1>
+      <p>The member portal is managed by Club Essential.</p>
+      <a href="https://members.hobackclub.com" class="btn btn--primary" target="_blank" rel="noopener noreferrer">
+        Go to Member Portal &rarr;
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .login-redirect {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1e2d3a 0%, #0d1a24 100%);
+    padding: 40px;
+    margin-top: 80px;
+  }
+
+  .login-content {
+    text-align: center;
+    max-width: 400px;
+  }
+
+  .login-logo {
+    height: 80px;
+    width: auto;
+    margin: 0 auto 30px;
+    display: block;
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 2.4rem;
+    font-weight: 300;
+    color: #fff;
+    margin: 0 0 16px;
+    letter-spacing: 1px;
+  }
+
+  p {
+    font-family: 'Lato', Helvetica, Arial, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0 0 30px;
+  }
+
+  .btn {
+    display: inline-block;
+    font-family: 'Lato', Helvetica, Arial, sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 12px 32px;
+    text-decoration: none;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .btn--primary {
+    background: #fff;
+    color: #1e2d3a;
+  }
+
+  .btn--primary:hover {
+    background: rgba(255, 255, 255, 0.9);
+  }
+
+  @media (max-width: 768px) {
+    .login-redirect {
+      margin-top: 60px;
+      padding: 30px 20px;
+    }
+
+    .login-logo {
+      height: 60px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+    }
+
+    p {
+      font-size: 0.85rem;
+    }
+  }
+</style>

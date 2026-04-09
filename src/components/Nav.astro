@@ -1,0 +1,246 @@
+---
+// Nav.astro - Shared navigation component
+const currentPath = Astro.url.pathname;
+
+const leftLinks = [
+  { href: '/discover', label: 'Discover Us' },
+  { href: '/stay', label: 'Come & Stay' },
+  { href: '/amenities', label: 'Amenities' },
+  { href: '/mountain', label: 'Mountain' },
+];
+
+const rightLinks = [
+  { href: '/lifestyle', label: 'Lifestyle' },
+  { href: '/membership', label: 'Membership' },
+  { href: '/contact', label: 'Contact Us' },
+  { href: 'https://members.hobackclub.com', label: 'Member Login', external: true },
+];
+---
+
+<header id="mainHeader">
+  <nav>
+    <div class="nav-left">
+      {leftLinks.map(link => (
+        <a href={link.href} class={currentPath === link.href ? 'active' : ''}>{link.label}</a>
+      ))}
+    </div>
+    <div class="nav-logo">
+      <a href="/">
+        <img src="/images/logo-footer.svg" alt="Hoback Club" class="nav-logo-shield" />
+        <img src="/images/logo-nav.svg" alt="Hoback Club" class="nav-logo-text-img" />
+      </a>
+    </div>
+    <div class="nav-right">
+      {rightLinks.map(link => (
+        <a
+          href={link.href}
+          class={currentPath === link.href ? 'active' : ''}
+          {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+        >{link.label}</a>
+      ))}
+    </div>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-inner">
+      {[...leftLinks, ...rightLinks].map(link => (
+        <a
+          href={link.href}
+          class={`mobile-menu-link ${currentPath === link.href ? 'active' : ''}`}
+          {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+        >{link.label}</a>
+      ))}
+    </div>
+  </div>
+</header>
+
+<style>
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: background 0.3s;
+  }
+  header.scrolled {
+    background: rgba(30, 45, 58, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 40px;
+    position: relative;
+    min-height: 60px;
+  }
+
+  .nav-left, .nav-right {
+    display: flex;
+    gap: 36px;
+    align-items: center;
+  }
+
+  .nav-left a, .nav-right a {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color 0.3s;
+    white-space: nowrap;
+  }
+  .nav-left a:hover, .nav-right a:hover,
+  .nav-left a.active, .nav-right a.active {
+    color: #ffffff;
+  }
+
+  .nav-logo {
+    margin: 0 50px;
+    flex-shrink: 0;
+  }
+  .nav-logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+  .nav-logo-shield {
+    height: 80px;
+    width: auto;
+    transition: opacity 0.3s, height 0.3s;
+  }
+  .nav-logo-text-img {
+    height: 14px;
+    width: auto;
+    opacity: 0;
+    position: absolute;
+    transition: opacity 0.3s;
+  }
+  header.scrolled .nav-logo-shield {
+    opacity: 0;
+    height: 0;
+  }
+  header.scrolled .nav-logo-text-img {
+    opacity: 1;
+    position: relative;
+  }
+
+  /* Hamburger */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    z-index: 1001;
+    min-width: 44px;
+    min-height: 44px;
+    justify-content: center;
+    align-items: center;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #fff;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+  .nav-hamburger.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  /* Mobile menu */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(30, 45, 58, 0.98);
+    z-index: 999;
+    align-items: center;
+    justify-content: center;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+  .mobile-menu-link {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color 0.3s;
+    padding: 12px 24px;
+    display: block;
+    text-align: center;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .mobile-menu-link:hover,
+  .mobile-menu-link.active { color: #ffffff; }
+
+  @media (max-width: 768px) {
+    .nav-left, .nav-right { display: none; }
+    .nav-hamburger { display: flex; }
+    nav {
+      justify-content: center;
+      padding: 12px 20px;
+      min-height: 56px;
+    }
+    .nav-logo { margin: 0; }
+    .nav-logo-shield { height: 50px; }
+  }
+
+  @media (max-width: 900px) and (min-width: 769px) {
+    .nav-left, .nav-right { gap: 20px; }
+    .nav-left a, .nav-right a { font-size: 0.65rem; letter-spacing: 0.08em; }
+    .nav-logo { margin: 0 30px; }
+  }
+</style>
+
+<script>
+  // Scroll handler
+  const header = document.getElementById('mainHeader');
+  window.addEventListener('scroll', () => {
+    header?.classList.toggle('scrolled', window.scrollY > 50);
+  }, { passive: true });
+
+  // Mobile menu
+  const hamburger = document.getElementById('navHamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger?.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu?.classList.toggle('open');
+    document.body.style.overflow = mobileMenu?.classList.contains('open') ? 'hidden' : '';
+  });
+
+  // Close mobile menu on link click
+  document.querySelectorAll('.mobile-menu-link').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger?.classList.remove('open');
+      mobileMenu?.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+</script>

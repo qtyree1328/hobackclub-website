@@ -1,0 +1,1279 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Home" heroClass="homepage">
+  <!-- SECTION 1: Video Hero with Curtain Reveal -->
+  <section class="hero-section">
+    <div class="hero-container">
+      <video class="hero-video" autoplay muted playsinline preload="metadata">
+        <source src="/videos/Hoback_website_video.mp4" type="video/mp4" />
+      </video>
+
+      <!-- Fallback image for browsers that don't support video -->
+      <div class="hero-fallback" style="background-image: url('https://hobackclub.com/images/dynamic/getImage.gif?ID=100032');"></div>
+
+      <!-- Curtain reveal overlay -->
+      <div class="curtain curtain-left"></div>
+      <div class="curtain curtain-right"></div>
+
+      <!-- Text overlay -->
+      <div class="hero-overlay">
+        <div class="hero-content">
+          <h1 class="hero-title">Hoback Club</h1>
+          <p class="hero-kicker">Jackson Hole, Wyoming</p>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="scroll-indicator">
+        <span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: Weather Bar -->
+  <section class="weather-section">
+    <div class="weather-container">
+      <div class="weather-header">
+        <h3>Weather This Week</h3>
+      </div>
+      <div class="weather-days">
+        <div class="weather-day">
+          <div class="weather-day-name">Mon</div>
+          <div class="weather-day-date">Apr 9</div>
+          <div class="weather-day-temp">38°</div>
+        </div>
+        <div class="weather-day">
+          <div class="weather-day-name">Tue</div>
+          <div class="weather-day-date">Apr 10</div>
+          <div class="weather-day-temp">42°</div>
+        </div>
+        <div class="weather-day">
+          <div class="weather-day-name">Wed</div>
+          <div class="weather-day-date">Apr 11</div>
+          <div class="weather-day-temp">35°</div>
+        </div>
+        <div class="weather-day">
+          <div class="weather-day-name">Thu</div>
+          <div class="weather-day-date">Apr 12</div>
+          <div class="weather-day-temp">40°</div>
+        </div>
+        <div class="weather-day">
+          <div class="weather-day-name">Fri</div>
+          <div class="weather-day-date">Apr 13</div>
+          <div class="weather-day-temp">44°</div>
+        </div>
+      </div>
+      <div class="weather-button">
+        <a href="/mountain" class="btn btn--outline">Mountain Conditions</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: Mountain Drawing Section -->
+  <section class="mountain-section">
+    <div class="mountain-container">
+      <div class="mountain-image">
+        <img src="/images/tetons_drawing4.png" alt="Teton Mountains" />
+      </div>
+      <div class="mountain-content">
+        <p class="mountain-kicker">Jackson Hole, Wyoming</p>
+        <h2 class="mountain-title">Where the Mountains Meet Your Door</h2>
+        <a href="/discover" class="btn btn--primary">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: Auto-Scrolling Image Gallery -->
+  <section class="gallery-section">
+    <div class="gallery-track" id="galleryTrack">
+      <!-- Images will be duplicated 3x for infinite scroll effect -->
+      <div class="gallery-slide" style="background-image: url('https://hobackclub.com/images/dynamic/getImage.gif?ID=100091');"></div>
+      <div class="gallery-slide" style="background-image: url('https://hobackclub.com/images/dynamic/getImage.gif?ID=100092');"></div>
+      <div class="gallery-slide" style="background-image: url('https://hobackclub.com/images/dynamic/getImage.gif?ID=100093');"></div>
+      <div class="gallery-slide" style="background-image: url('https://hobackclub.com/images/dynamic/getImage.gif?ID=100094');"></div>
+      <div class="gallery-slide" style="background-image: url('https://hobackclub.com/images/dynamic/getImage.gif?ID=100096');"></div>
+      <div class="gallery-slide" style="background-image: url('https://hobackclub.com/images/dynamic/getImage.gif?ID=100097');"></div>
+      <div class="gallery-slide" style="background-image: url('https://hobackclub.com/images/dynamic/getImage.gif?ID=100099');"></div>
+      <div class="gallery-slide" style="background-image: url('https://hobackclub.com/images/dynamic/getImage.gif?ID=100101');"></div>
+      <div class="gallery-slide" style="background-image: url('https://hobackclub.com/images/dynamic/getImage.gif?ID=100105');"></div>
+      <div class="gallery-slide" style="background-image: url('https://hobackclub.com/images/dynamic/getImage.gif?ID=100106');"></div>
+      <div class="gallery-slide" style="background-image: url('https://hobackclub.com/images/dynamic/getImage.gif?ID=100107');"></div>
+
+      <!-- Duplicate for infinite loop -->
+      <div class="gallery-slide" style="background-image: url('https://hobackclub.com/images/dynamic/getImage.gif?ID=100091');"></div>
+      <div class="gallery-slide" style="background-image: url('https://hobackclub.com/images/dynamic/getImage.gif?ID=100092');"></div>
+      <div class="gallery-slide" style="background-image: url('https://hobackclub.com/images/dynamic/getImage.gif?ID=100093');"></div>
+      <div class="gallery-slide" style="background-image: url('https://hobackclub.com/images/dynamic/getImage.gif?ID=100094');"></div>
+      <div class="gallery-slide" style="background-image: url('https://hobackclub.com/images/dynamic/getImage.gif?ID=100096');"></div>
+      <div class="gallery-slide" style="background-image: url('https://hobackclub.com/images/dynamic/getImage.gif?ID=100097');"></div>
+      <div class="gallery-slide" style="background-image: url('https://hobackclub.com/images/dynamic/getImage.gif?ID=100099');"></div>
+      <div class="gallery-slide" style="background-image: url('https://hobackclub.com/images/dynamic/getImage.gif?ID=100101');"></div>
+      <div class="gallery-slide" style="background-image: url('https://hobackclub.com/images/dynamic/getImage.gif?ID=100105');"></div>
+      <div class="gallery-slide" style="background-image: url('https://hobackclub.com/images/dynamic/getImage.gif?ID=100106');"></div>
+      <div class="gallery-slide" style="background-image: url('https://hobackclub.com/images/dynamic/getImage.gif?ID=100107');"></div>
+
+      <!-- Third copy for seamless loop -->
+      <div class="gallery-slide" style="background-image: url('https://hobackclub.com/images/dynamic/getImage.gif?ID=100091');"></div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: Showcase Panels - Life at Hoback -->
+  <section class="showcase-section">
+    <div class="showcase-container">
+      <h2 class="showcase-title">Life at Hoback</h2>
+
+      <!-- Panel 1 -->
+      <div class="showcase-panel">
+        <div class="showcase-panel-image" style="background-image: url('/images/hero-1.jpg');"></div>
+        <div class="showcase-panel-content">
+          <div class="showcase-number">01</div>
+          <div class="showcase-divider"></div>
+          <h3 class="showcase-heading">The Best Ski-In, Ski-Out Access in Jackson</h3>
+          <p class="showcase-description">Experience unparalleled convenience with direct slope access. Your skis touch snow steps from your residence.</p>
+        </div>
+      </div>
+
+      <!-- Panel 2 -->
+      <div class="showcase-panel showcase-panel--reversed">
+        <div class="showcase-panel-image" style="background-image: url('/images/hero-2.jpg');"></div>
+        <div class="showcase-panel-content">
+          <div class="showcase-number">02</div>
+          <div class="showcase-divider"></div>
+          <h3 class="showcase-heading">World-Class Wellness & Recovery Spa</h3>
+          <p class="showcase-description">Rejuvenate with alpine treatments, thermal pools, and expert wellness services designed for mountain living.</p>
+        </div>
+      </div>
+
+      <!-- Panel 3 -->
+      <div class="showcase-panel">
+        <div class="showcase-panel-image" style="background-image: url('/images/card-discover.jpg');"></div>
+        <div class="showcase-panel-content">
+          <div class="showcase-number">03</div>
+          <div class="showcase-divider"></div>
+          <h3 class="showcase-heading">Private Residence Dining, Locally Sourced</h3>
+          <p class="showcase-description">Farm-to-table elegance with seasonal menus, private chef services, and wine cellars curated for the refined palate.</p>
+        </div>
+      </div>
+
+      <!-- Panel 4 -->
+      <div class="showcase-panel showcase-panel--reversed">
+        <div class="showcase-panel-image" style="background-image: url('/images/card-winter.jpg');"></div>
+        <div class="showcase-panel-content">
+          <div class="showcase-number">04</div>
+          <div class="showcase-divider"></div>
+          <h3 class="showcase-heading">Indoor & Outdoor Après Ski Lounges</h3>
+          <p class="showcase-description">Unwind in fireside libraries and sun-soaked terraces with craft cocktails and mountain views that inspire.</p>
+        </div>
+      </div>
+
+      <!-- Panel 5 -->
+      <div class="showcase-panel">
+        <div class="showcase-panel-image" style="background-image: url('/images/card-summer.jpg');"></div>
+        <div class="showcase-panel-content">
+          <div class="showcase-number">05</div>
+          <div class="showcase-divider"></div>
+          <h3 class="showcase-heading">Direct Access to Grand Teton National Park</h3>
+          <p class="showcase-description">Hike, fish, and explore pristine wilderness. Your gateway to untracked alpine adventure is literally next door.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: Seasons Section -->
+  <section class="seasons-section">
+    <div class="seasons-container">
+      <h2 class="seasons-title">Four Seasons of Extraordinary Living</h2>
+
+      <div class="seasons-grid">
+        <div class="season-card season-winter" data-season="winter">
+          <div class="season-overlay"></div>
+          <p class="season-name">Winter</p>
+        </div>
+        <div class="season-card season-spring" data-season="spring">
+          <div class="season-overlay"></div>
+          <p class="season-name">Spring</p>
+        </div>
+        <div class="season-card season-summer" data-season="summer">
+          <div class="season-overlay"></div>
+          <p class="season-name">Summer</p>
+        </div>
+        <div class="season-card season-fall" data-season="fall">
+          <div class="season-overlay"></div>
+          <p class="season-name">Fall</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: Card Carousel -->
+  <section class="carousel-section">
+    <div class="carousel-container">
+      <div class="carousel-left">
+        <h2 class="carousel-title">Explore Our Exclusive Club</h2>
+
+        <div class="carousel-dots">
+          <button class="dot active" data-index="0" aria-label="Slide 1"></button>
+          <button class="dot" data-index="1" aria-label="Slide 2"></button>
+          <button class="dot" data-index="2" aria-label="Slide 3"></button>
+          <button class="dot" data-index="3" aria-label="Slide 4"></button>
+          <button class="dot" data-index="4" aria-label="Slide 5"></button>
+        </div>
+
+        <div class="carousel-controls">
+          <button class="carousel-arrow carousel-prev" aria-label="Previous slide">←</button>
+          <button class="carousel-arrow carousel-next" aria-label="Next slide">→</button>
+        </div>
+      </div>
+
+      <div class="carousel-right">
+        <div class="carousel-track" id="carouselTrack">
+          <div class="carousel-card" style="background-image: url('/images/card-discover.jpg');">
+            <div class="carousel-card-overlay"></div>
+            <h3><a href="/discover">Discover Us</a></h3>
+          </div>
+          <div class="carousel-card" style="background-image: url('/images/card-stay.jpg');">
+            <div class="carousel-card-overlay"></div>
+            <h3><a href="/stay">Come & Stay</a></h3>
+          </div>
+          <div class="carousel-card" style="background-image: url('/images/card-amenities.jpg');">
+            <div class="carousel-card-overlay"></div>
+            <h3><a href="/amenities">Amenities</a></h3>
+          </div>
+          <div class="carousel-card" style="background-image: url('/images/card-winter.jpg');">
+            <div class="carousel-card-overlay"></div>
+            <h3><a href="/mountain">Winter Activities</a></h3>
+          </div>
+          <div class="carousel-card" style="background-image: url('/images/card-summer.jpg');">
+            <div class="carousel-card-overlay"></div>
+            <h3><a href="/lifestyle">Summer Activities</a></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 8: Reserve Your Stay -->
+  <section class="reserve-section">
+    <div class="reserve-container">
+      <div class="reserve-content">
+        <h2 class="reserve-title">Reserve Your Stay</h2>
+        <p class="reserve-description">Begin your mountain retreat today. Contact our hospitality team to plan your perfect Hoback experience.</p>
+        <a href="/stay" class="btn btn--primary">Inquire About a Stay</a>
+      </div>
+      <div class="reserve-image">
+        <img src="/images/hoback_drawing1.png" alt="Hoback Clubhouse" />
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* ========== HERO SECTION ========== */
+  .hero-section {
+    position: relative;
+    overflow: hidden;
+    background: #000;
+    margin-top: 80px;
+  }
+
+  .hero-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-out 0.6s;
+  }
+
+  .hero-video.revealed {
+    opacity: 1;
+  }
+
+  .hero-fallback {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .curtain {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background: #1e2d3a;
+    z-index: 50;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.4s;
+  }
+
+  .curtain-left {
+    left: 0;
+    transform: translateX(-100%);
+  }
+
+  .curtain-right {
+    right: 0;
+    transform: translateX(100%);
+  }
+
+  .curtain.revealed {
+    transform: translateX(0);
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 40;
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+  }
+
+  .hero-content {
+    text-align: center;
+    color: #fff;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 4rem;
+    font-weight: 300;
+    margin: 0;
+    letter-spacing: 2px;
+  }
+
+  .hero-kicker {
+    font-family: 'Lato', Helvetica, Arial, sans-serif;
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 16px 0 0;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 60;
+  }
+
+  .scroll-indicator span {
+    display: block;
+    width: 2px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.5);
+    margin: 0 auto;
+    animation: pulse-scroll 2s infinite;
+  }
+
+  @keyframes pulse-scroll {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(8px);
+      opacity: 0;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-section {
+      margin-top: 60px;
+    }
+    .hero-title {
+      font-size: 2.2rem;
+      letter-spacing: 1px;
+    }
+    .hero-kicker {
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+    }
+  }
+
+  /* ========== WEATHER SECTION ========== */
+  .weather-section {
+    background: #f7f5f2;
+    padding: 40px 20px;
+  }
+
+  .weather-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  }
+
+  .weather-header {
+    flex-shrink: 0;
+  }
+
+  .weather-header h3 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: #1e2d3a;
+    margin: 0;
+    white-space: nowrap;
+  }
+
+  .weather-days {
+    display: flex;
+    gap: 30px;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .weather-day {
+    text-align: center;
+  }
+
+  .weather-day-name {
+    font-family: 'Lato', Helvetica, Arial, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #7a8d98;
+    margin-bottom: 4px;
+  }
+
+  .weather-day-date {
+    font-family: 'Lato', Helvetica, Arial, sans-serif;
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: #666;
+    margin-bottom: 8px;
+  }
+
+  .weather-day-temp {
+    font-family: 'Lato', Helvetica, Arial, sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1e2d3a;
+  }
+
+  .weather-button {
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 1024px) {
+    .weather-container {
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .weather-days {
+      gap: 15px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .weather-section {
+      padding: 30px 20px;
+    }
+    .weather-container {
+      flex-direction: column;
+      gap: 20px;
+    }
+    .weather-header h3 {
+      font-size: 1.2rem;
+    }
+    .weather-days {
+      width: 100%;
+      gap: 10px;
+    }
+  }
+
+  /* ========== MOUNTAIN SECTION ========== */
+  .mountain-section {
+    background: #ede9e1;
+    padding: 80px 40px;
+  }
+
+  .mountain-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+  }
+
+  .mountain-image {
+    flex: 0 0 50%;
+    margin-left: -80px;
+  }
+
+  .mountain-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    opacity: 0.55;
+  }
+
+  .mountain-content {
+    flex: 1;
+  }
+
+  .mountain-kicker {
+    font-family: 'Lato', Helvetica, Arial, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #7a8d98;
+    margin: 0 0 16px;
+  }
+
+  .mountain-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: #1e2d3a;
+    margin: 0 0 30px;
+    line-height: 1.3;
+  }
+
+  @media (max-width: 1024px) {
+    .mountain-container {
+      flex-direction: column;
+      gap: 40px;
+    }
+    .mountain-image {
+      flex: 1;
+      margin-left: 0;
+      width: 100%;
+    }
+    .mountain-content {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .mountain-section {
+      padding: 50px 20px;
+    }
+    .mountain-title {
+      font-size: 1.8rem;
+    }
+  }
+
+  /* ========== GALLERY SECTION ========== */
+  .gallery-section {
+    background: #ede9e1;
+    padding: 60px 0;
+    overflow: hidden;
+  }
+
+  .gallery-track {
+    display: flex;
+    gap: 16px;
+    padding: 0 20px;
+    animation: scroll-gallery 60s linear infinite;
+  }
+
+  .gallery-track:hover {
+    animation-play-state: paused;
+  }
+
+  .gallery-slide {
+    flex: 0 0 280px;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .gallery-slide:hover {
+    transform: scale(1.05);
+  }
+
+  @keyframes scroll-gallery {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-33.33% - (16px / 3)));
+    }
+  }
+
+  @media (max-width: 768px) {
+    .gallery-section {
+      padding: 40px 0;
+    }
+    .gallery-track {
+      padding: 0 10px;
+      gap: 12px;
+    }
+    .gallery-slide {
+      flex: 0 0 150px;
+      height: 150px;
+    }
+  }
+
+  /* ========== SHOWCASE SECTION ========== */
+  .showcase-section {
+    background: #fff;
+    padding: 100px 40px;
+  }
+
+  .showcase-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .showcase-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 3rem;
+    font-weight: 300;
+    color: #1e2d3a;
+    text-align: center;
+    margin-bottom: 80px;
+  }
+
+  .showcase-panel {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    margin-bottom: 100px;
+    opacity: 0;
+    transition: opacity 0.6s ease-out;
+  }
+
+  .showcase-panel.visible {
+    opacity: 1;
+  }
+
+  .showcase-panel--reversed {
+    flex-direction: row-reverse;
+  }
+
+  .showcase-panel-image {
+    flex: 0 0 45%;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 4px;
+  }
+
+  .showcase-panel-content {
+    flex: 1;
+  }
+
+  .showcase-number {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 3.5rem;
+    font-weight: 300;
+    color: #1e2d3a;
+    margin: 0;
+  }
+
+  .showcase-divider {
+    width: 60px;
+    height: 2px;
+    background: #1e2d3a;
+    margin: 16px 0;
+  }
+
+  .showcase-heading {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 2rem;
+    font-weight: 300;
+    color: #1e2d3a;
+    margin: 16px 0;
+    line-height: 1.4;
+  }
+
+  .showcase-description {
+    font-family: 'Lato', Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    color: #666;
+    line-height: 1.8;
+    margin: 0;
+  }
+
+  @media (max-width: 1024px) {
+    .showcase-panel {
+      flex-direction: column !important;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+    .showcase-panel-image {
+      flex: 1;
+      width: 100%;
+      height: 300px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .showcase-section {
+      padding: 50px 20px;
+    }
+    .showcase-title {
+      font-size: 1.8rem;
+      margin-bottom: 40px;
+    }
+    .showcase-panel {
+      margin-bottom: 50px;
+    }
+    .showcase-panel-image {
+      height: 220px;
+    }
+    .showcase-number {
+      font-size: 2.2rem;
+    }
+    .showcase-heading {
+      font-size: 1.3rem;
+      margin: 12px 0;
+    }
+    .showcase-description {
+      font-size: 0.9rem;
+    }
+  }
+
+  /* ========== SEASONS SECTION ========== */
+  .seasons-section {
+    background: #fff;
+    padding: 100px 40px;
+  }
+
+  .seasons-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .seasons-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: #1e2d3a;
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .seasons-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    height: 400px;
+  }
+
+  .season-card {
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+    flex: 1;
+    transition: flex 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .season-winter {
+    background-image: url('https://hobackclub.com/images/dynamic/getImage.gif?ID=100032');
+  }
+
+  .season-spring {
+    background-image: url('https://hobackclub.com/images/dynamic/getImage.gif?ID=100077');
+  }
+
+  .season-summer {
+    background-image: url('https://hobackclub.com/images/dynamic/getImage.gif?ID=100120');
+  }
+
+  .season-fall {
+    background-image: url('https://hobackclub.com/images/dynamic/getImage.gif?ID=100032');
+  }
+
+  .season-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0);
+    transition: background 0.6s ease;
+  }
+
+  .season-card:hover .season-overlay {
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  .season-card ~ .season-card:hover ~ .season-card .season-overlay,
+  .season-card ~ .season-card:hover .season-overlay {
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  .season-name {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 2rem;
+    font-weight: 300;
+    color: #fff;
+    margin: 0;
+    z-index: 10;
+  }
+
+  .season-card:hover {
+    flex: 1.6;
+  }
+
+  .season-card:hover .season-overlay {
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  @media (max-width: 1024px) {
+    .seasons-grid {
+      grid-template-columns: repeat(2, 1fr);
+      height: 300px;
+    }
+    .season-name {
+      font-size: 1.5rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .seasons-section {
+      padding: 50px 20px;
+    }
+    .seasons-title {
+      font-size: 1.6rem;
+      margin-bottom: 40px;
+    }
+    .seasons-grid {
+      grid-template-columns: 1fr;
+      height: auto;
+      min-height: 250px;
+    }
+    .season-name {
+      font-size: 1.1rem;
+      bottom: 15px;
+      left: 15px;
+    }
+  }
+
+  /* ========== CAROUSEL SECTION ========== */
+  .carousel-section {
+    background: #1e2d3a;
+    padding: 80px 40px;
+  }
+
+  .carousel-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    gap: 60px;
+  }
+
+  .carousel-left {
+    flex: 0 0 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .carousel-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 2.2rem;
+    font-weight: 300;
+    color: #fff;
+    margin: 0 0 40px;
+  }
+
+  .carousel-dots {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+
+  .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .dot.active {
+    background: #fff;
+    width: 30px;
+    border-radius: 6px;
+  }
+
+  .carousel-controls {
+    display: flex;
+    gap: 12px;
+  }
+
+  .carousel-arrow {
+    width: 44px;
+    height: 44px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: transparent;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .carousel-arrow:hover {
+    border-color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .carousel-right {
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .carousel-card {
+    flex: 0 0 calc(50% - 10px);
+    aspect-ratio: 16 / 9;
+    background-size: cover;
+    background-position: center;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .carousel-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    transition: background 0.3s ease;
+  }
+
+  .carousel-card:hover .carousel-card-overlay {
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  .carousel-card h3 {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.8rem;
+    font-weight: 300;
+    margin: 0;
+    z-index: 10;
+  }
+
+  .carousel-card a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  @media (max-width: 1024px) {
+    .carousel-container {
+      flex-direction: column;
+      gap: 40px;
+    }
+    .carousel-card {
+      flex: 0 0 100%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .carousel-section {
+      padding: 50px 20px;
+    }
+    .carousel-container {
+      gap: 30px;
+    }
+    .carousel-left {
+      flex: 1;
+      width: 100%;
+    }
+    .carousel-title {
+      font-size: 1.4rem;
+      margin-bottom: 30px;
+    }
+    .carousel-dots {
+      margin-bottom: 30px;
+    }
+    .carousel-card {
+      aspect-ratio: 1.5 / 1;
+      flex: 0 0 100%;
+    }
+    .carousel-card h3 {
+      font-size: 1.2rem;
+      bottom: 15px;
+      left: 15px;
+    }
+  }
+
+  /* ========== RESERVE SECTION ========== */
+  .reserve-section {
+    background: #ede9e1;
+    padding: 80px 40px;
+  }
+
+  .reserve-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+  }
+
+  .reserve-content {
+    flex: 1;
+  }
+
+  .reserve-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: #1e2d3a;
+    margin: 0 0 16px;
+  }
+
+  .reserve-description {
+    font-family: 'Lato', Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    color: #666;
+    line-height: 1.8;
+    margin: 0 0 30px;
+  }
+
+  .reserve-image {
+    flex: 0 0 40%;
+  }
+
+  .reserve-image img {
+    width: 100%;
+    height: auto;
+    opacity: 0.55;
+    display: block;
+  }
+
+  @media (max-width: 1024px) {
+    .reserve-container {
+      flex-direction: column;
+    }
+    .reserve-image {
+      width: 100%;
+      flex: 1;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .reserve-section {
+      padding: 50px 20px;
+    }
+    .reserve-container {
+      gap: 30px;
+    }
+    .reserve-title {
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+    }
+    .reserve-description {
+      font-size: 0.95rem;
+      margin-bottom: 25px;
+    }
+    .reserve-image {
+      max-width: 100%;
+    }
+  }
+
+  /* ========== BUTTONS ========== */
+  .btn {
+    display: inline-block;
+    font-family: 'Lato', Helvetica, Arial, sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 12px 32px;
+    text-decoration: none;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .btn--primary {
+    background: #1e2d3a;
+    color: #fff;
+  }
+
+  .btn--primary:hover {
+    background: #0d1a24;
+  }
+
+  .btn--outline {
+    background: transparent;
+    color: #1e2d3a;
+    border: 2px solid #1e2d3a;
+  }
+
+  .btn--outline:hover {
+    background: #1e2d3a;
+    color: #fff;
+  }
+</style>
+
+<script>
+  // ========== CURTAIN REVEAL ANIMATION ==========
+  const curtainLeft = document.querySelector('.curtain-left');
+  const curtainRight = document.querySelector('.curtain-right');
+  const heroVideo = document.querySelector('.hero-video');
+
+  setTimeout(() => {
+    curtainLeft?.classList.add('revealed');
+    curtainRight?.classList.add('revealed');
+    heroVideo?.classList.add('revealed');
+  }, 300);
+
+  // ========== GALLERY AUTO-SCROLL ==========
+  const galleryTrack = document.getElementById('galleryTrack');
+  if (galleryTrack) {
+    let scrollAmount = 0;
+    const slideWidth = 296; // 280px + 16px gap
+    const speed = 0.5; // pixels per frame
+    let isScrolling = true;
+
+    const scroll = () => {
+      if (isScrolling) {
+        scrollAmount += speed;
+        galleryTrack.style.transform = `translateX(-${scrollAmount}px)`;
+
+        // Reset for infinite loop
+        const maxScroll = slideWidth * 11 + 16 * 10; // 11 original slides + gaps
+        if (scrollAmount > maxScroll) {
+          scrollAmount = 0;
+        }
+      }
+      requestAnimationFrame(scroll);
+    };
+
+    galleryTrack.addEventListener('mouseenter', () => { isScrolling = false; });
+    galleryTrack.addEventListener('mouseleave', () => { isScrolling = true; });
+    galleryTrack.addEventListener('touchstart', () => { isScrolling = false; });
+    galleryTrack.addEventListener('touchend', () => { isScrolling = true; });
+
+    scroll();
+  }
+
+  // ========== SHOWCASE PANEL INTERSECTION OBSERVER ==========
+  const showcasePanels = document.querySelectorAll('.showcase-panel');
+  const panelObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        panelObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  showcasePanels.forEach(panel => panelObserver.observe(panel));
+
+  // ========== SEASONS HOVER EFFECT ==========
+  const seasonCards = document.querySelectorAll('.season-card');
+  seasonCards.forEach((card, index) => {
+    card.addEventListener('mouseenter', () => {
+      seasonCards.forEach((c, i) => {
+        if (i !== index) {
+          c.style.opacity = '0.6';
+        }
+      });
+    });
+    card.addEventListener('mouseleave', () => {
+      seasonCards.forEach(c => {
+        c.style.opacity = '1';
+      });
+    });
+  });
+
+  // ========== CAROUSEL NAVIGATION ==========
+  const carouselTrack = document.getElementById('carouselTrack');
+  const dots = document.querySelectorAll('.dot');
+  const prevBtn = document.querySelector('.carousel-prev');
+  const nextBtn = document.querySelector('.carousel-next');
+
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.carousel-card');
+  const totalSlides = 5;
+
+  const updateCarousel = () => {
+    const offset = -currentSlide * (50 + 2.5); // 50% width + gap
+    carouselTrack.style.transform = `translateX(${offset}%)`;
+
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === currentSlide);
+    });
+  };
+
+  prevBtn?.addEventListener('click', () => {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    updateCarousel();
+  });
+
+  nextBtn?.addEventListener('click', () => {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    updateCarousel();
+  });
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      currentSlide = parseInt(dot.dataset.index);
+      updateCarousel();
+    });
+  });
+
+  // Touch/swipe support for carousel
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  carouselTrack?.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+
+  carouselTrack?.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    if (touchStartX - touchEndX > 50) {
+      nextBtn?.click();
+    } else if (touchEndX - touchStartX > 50) {
+      prevBtn?.click();
+    }
+  });
+
+  updateCarousel();
+</script>
