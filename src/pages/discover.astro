@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroStandard from '../components/HeroStandard.astro';
+import { withBase } from '../utils/paths';
 ---
 
 <BaseLayout title="Discover Us" description="Learn about Hoback Club, our luxury private residence club in Jackson Hole, Wyoming, and what makes us unique.">
@@ -58,7 +59,7 @@ import HeroStandard from '../components/HeroStandard.astro';
       <p>
         Nestled at the base of the Grand Teton and surrounded by 13.3 million acres of public lands, Jackson Hole is the epicenter of alpine adventure. Home to Jackson Hole Mountain Resort with its legendary 4,139' vertical and abundant powder, world-renowned fly fishing on the Snake River, and an authentic western culture that runs deep, Jackson Hole offers a way of life unlike anywhere else.
       </p>
-      <a href="/mountain" class="btn btn--primary">Explore Mountain</a>
+      <a href={withBase('/mountain')} class="btn btn--primary">Explore Mountain</a>
     </div>
   </section>
 
@@ -126,7 +127,7 @@ import HeroStandard from '../components/HeroStandard.astro';
   <section class="cta-section">
     <div class="cta-container">
       <h2>Ready to Experience Hoback?</h2>
-      <a href="/contact" class="btn btn--white">Contact Us</a>
+      <a href={withBase('/contact')} class="btn btn--white">Contact Us</a>
     </div>
   </section>
 

@@ -1,11 +1,12 @@
 ---
 // Footer.astro - Shared footer component
+import { withBase } from '../utils/paths';
 ---
 
 <footer>
   <div class="footer-inner">
     <div class="footer-logo">
-      <a href="/"><img src="/images/logo-footer.svg" alt="Hoback Club" /></a>
+      <a href={withBase('/')}><img src={withBase('/images/logo-footer.svg')} alt="Hoback Club" /></a>
     </div>
     <div class="footer-info">
       <div class="footer-info-top">
@@ -15,8 +16,8 @@
           <a href="tel:+13072491000">(307) 249-1000</a>
         </div>
         <div class="footer-links">
-          <a href="/membership">Membership Inquiries</a>
-          <a href="/contact">Contact Us</a>
+          <a href={withBase('/membership')}>Membership Inquiries</a>
+          <a href={withBase('/contact')}>Contact Us</a>
         </div>
       </div>
       <div class="footer-bottom">

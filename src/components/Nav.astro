@@ -1,5 +1,7 @@
 ---
 // Nav.astro - Shared navigation component
+import { isActivePath, withBase } from '../utils/paths';
+
 const currentPath = Astro.url.pathname;
 
 const leftLinks = [
@@ -21,20 +23,20 @@ const rightLinks = [
   <nav>
     <div class="nav-left">
       {leftLinks.map(link => (
-        <a href={link.href} class={currentPath === link.href ? 'active' : ''}>{link.label}</a>
+        <a href={withBase(link.href)} class={isActivePath(currentPath, link.href) ? 'active' : ''}>{link.label}</a>
       ))}
     </div>
     <div class="nav-logo">
-      <a href="/">
-        <img src="/images/logo-footer.svg" alt="Hoback Club" class="nav-logo-shield" />
-        <img src="/images/logo-nav.svg" alt="Hoback Club" class="nav-logo-text-img" />
+      <a href={withBase('/')}>
+        <img src={withBase('/images/logo-footer.svg')} alt="Hoback Club" class="nav-logo-shield" />
+        <img src={withBase('/images/logo-nav.svg')} alt="Hoback Club" class="nav-logo-text-img" />
       </a>
     </div>
     <div class="nav-right">
       {rightLinks.map(link => (
         <a
-          href={link.href}
-          class={currentPath === link.href ? 'active' : ''}
+          href={withBase(link.href)}
+          class={isActivePath(currentPath, link.href) ? 'active' : ''}
           {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
         >{link.label}</a>
       ))}
@@ -49,8 +51,8 @@ const rightLinks = [
     <div class="mobile-menu-inner">
       {[...leftLinks, ...rightLinks].map(link => (
         <a
-          href={link.href}
-          class={`mobile-menu-link ${currentPath === link.href ? 'active' : ''}`}
+          href={withBase(link.href)}
+          class={`mobile-menu-link ${isActivePath(currentPath, link.href) ? 'active' : ''}`}
           {...(link.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
         >{link.label}</a>
       ))}

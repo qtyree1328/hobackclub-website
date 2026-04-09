@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroStandard from '../components/HeroStandard.astro';
+import { withBase } from '../utils/paths';
 ---
 
 <BaseLayout title="Come & Stay" description="Book your mountain retreat at Hoback Club — luxury private accommodations in Jackson Hole, Wyoming.">
@@ -18,7 +19,7 @@ import HeroStandard from '../components/HeroStandard.astro';
       <p class="intro-paragraph">
         Experience the pinnacle of alpine luxury at Hoback Club. Our private residences offer ski-in/ski-out access to Jackson Hole Mountain Resort, world-class amenities, and personalized concierge service. Whether you're seeking a powder-filled adventure or a peaceful mountain escape, our accommodations provide the perfect sanctuary in the heart of Wyoming's most exclusive destination.
       </p>
-      <a href="/amenities" class="btn btn--primary">View Amenities</a>
+      <a href={withBase('/amenities')} class="btn btn--primary">View Amenities</a>
     </div>
   </section>
 
@@ -323,7 +324,7 @@ import HeroStandard from '../components/HeroStandard.astro';
     <div class="container">
       <h2 class="cta-heading">Questions?</h2>
       <p class="cta-phone">(307) 249-1000</p>
-      <a href="/contact" class="btn btn--primary">Contact Us</a>
+      <a href={withBase('/contact')} class="btn btn--primary">Contact Us</a>
     </div>
   </section>
 

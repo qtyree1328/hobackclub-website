@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroStandard from '../components/HeroStandard.astro';
+import { withBase } from '../utils/paths';
 ---
 
 <BaseLayout title="Membership" description="Join the Hoback Club and experience luxury mountain living in Jackson Hole.">
@@ -220,7 +221,7 @@ import HeroStandard from '../components/HeroStandard.astro';
         <p style="font-size: 1rem; color: var(--text); margin-bottom: 32px;">
           Mon-Sun, 7am - 10pm
         </p>
-        <a href="/contact" class="btn btn--primary">Contact Our Team</a>
+        <a href={withBase('/contact')} class="btn btn--primary">Contact Our Team</a>
       </div>
     </div>
   </section>

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroStandard from '../components/HeroStandard.astro';
+import { withBase } from '../utils/paths';
 ---
 
 <BaseLayout title="Amenities" description="Explore Hoback Club's world-class amenities, from The Great Hall to our spa, fitness center, and family-friendly activities.">
@@ -165,7 +166,7 @@ import HeroStandard from '../components/HeroStandard.astro';
   <section class="final-cta-section">
     <div class="final-cta-container">
       <h2>Experience Hoback Club</h2>
-      <a href="/stay" class="btn btn--primary">Plan Your Stay</a>
+      <a href={withBase('/stay')} class="btn btn--primary">Plan Your Stay</a>
     </div>
   </section>
 

@@ -1,11 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../utils/paths';
 ---
 
 <BaseLayout title="Member Login">
   <section class="login-redirect">
     <div class="login-content">
-      <img src="/images/logo-footer.svg" alt="Hoback Club" class="login-logo" />
+      <img src={withBase('/images/logo-footer.svg')} alt="Hoback Club" class="login-logo" />
       <h1>Member Portal</h1>
       <p>The member portal is managed by Club Essential.</p>
       <a href="https://members.hobackclub.com" class="btn btn--primary" target="_blank" rel="noopener noreferrer">

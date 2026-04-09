@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../utils/paths';
 ---
 
 <BaseLayout title="Home" heroClass="homepage">
@@ -7,7 +8,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <section class="hero-section">
     <div class="hero-container">
       <video class="hero-video" autoplay muted playsinline preload="metadata">
-        <source src="/videos/Hoback_website_video.mp4" type="video/mp4" />
+        <source src={withBase('/videos/Hoback_website_video.mp4')} type="video/mp4" />
       </video>
 
       <!-- Fallback image for browsers that don't support video -->
@@ -66,7 +67,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         </div>
       </div>
       <div class="weather-button">
-        <a href="/mountain" class="btn btn--outline">Mountain Conditions</a>
+        <a href={withBase('/mountain')} class="btn btn--outline">Mountain Conditions</a>
       </div>
     </div>
   </section>
@@ -75,12 +76,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <section class="mountain-section">
     <div class="mountain-container">
       <div class="mountain-image">
-        <img src="/images/tetons_drawing4.png" alt="Teton Mountains" />
+        <img src={withBase('/images/tetons_drawing4.png')} alt="Teton Mountains" />
       </div>
       <div class="mountain-content">
         <p class="mountain-kicker">Jackson Hole, Wyoming</p>
         <h2 class="mountain-title">Where the Mountains Meet Your Door</h2>
-        <a href="/discover" class="btn btn--primary">Learn More</a>
+        <a href={withBase('/discover')} class="btn btn--primary">Learn More</a>
       </div>
     </div>
   </section>
@@ -126,7 +127,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <!-- Panel 1 -->
       <div class="showcase-panel">
-        <div class="showcase-panel-image" style="background-image: url('/images/hero-1.jpg');"></div>
+        <div class="showcase-panel-image" style={`background-image: url('${withBase('/images/hero-1.jpg')}');`}></div>
         <div class="showcase-panel-content">
           <div class="showcase-number">01</div>
           <div class="showcase-divider"></div>
@@ -137,7 +138,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <!-- Panel 2 -->
       <div class="showcase-panel showcase-panel--reversed">
-        <div class="showcase-panel-image" style="background-image: url('/images/hero-2.jpg');"></div>
+        <div class="showcase-panel-image" style={`background-image: url('${withBase('/images/hero-2.jpg')}');`}></div>
         <div class="showcase-panel-content">
           <div class="showcase-number">02</div>
           <div class="showcase-divider"></div>
@@ -148,7 +149,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <!-- Panel 3 -->
       <div class="showcase-panel">
-        <div class="showcase-panel-image" style="background-image: url('/images/card-discover.jpg');"></div>
+        <div class="showcase-panel-image" style={`background-image: url('${withBase('/images/card-discover.jpg')}');`}></div>
         <div class="showcase-panel-content">
           <div class="showcase-number">03</div>
           <div class="showcase-divider"></div>
@@ -159,7 +160,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <!-- Panel 4 -->
       <div class="showcase-panel showcase-panel--reversed">
-        <div class="showcase-panel-image" style="background-image: url('/images/card-winter.jpg');"></div>
+        <div class="showcase-panel-image" style={`background-image: url('${withBase('/images/card-winter.jpg')}');`}></div>
         <div class="showcase-panel-content">
           <div class="showcase-number">04</div>
           <div class="showcase-divider"></div>
@@ -170,7 +171,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <!-- Panel 5 -->
       <div class="showcase-panel">
-        <div class="showcase-panel-image" style="background-image: url('/images/card-summer.jpg');"></div>
+        <div class="showcase-panel-image" style={`background-image: url('${withBase('/images/card-summer.jpg')}');`}></div>
         <div class="showcase-panel-content">
           <div class="showcase-number">05</div>
           <div class="showcase-divider"></div>
@@ -229,25 +230,25 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
       <div class="carousel-right">
         <div class="carousel-track" id="carouselTrack">
-          <div class="carousel-card" style="background-image: url('/images/card-discover.jpg');">
+          <div class="carousel-card" style={`background-image: url('${withBase('/images/card-discover.jpg')}');`}>
             <div class="carousel-card-overlay"></div>
-            <h3><a href="/discover">Discover Us</a></h3>
+            <h3><a href={withBase('/discover')}>Discover Us</a></h3>
           </div>
-          <div class="carousel-card" style="background-image: url('/images/card-stay.jpg');">
+          <div class="carousel-card" style={`background-image: url('${withBase('/images/card-stay.jpg')}');`}>
             <div class="carousel-card-overlay"></div>
-            <h3><a href="/stay">Come & Stay</a></h3>
+            <h3><a href={withBase('/stay')}>Come & Stay</a></h3>
           </div>
-          <div class="carousel-card" style="background-image: url('/images/card-amenities.jpg');">
+          <div class="carousel-card" style={`background-image: url('${withBase('/images/card-amenities.jpg')}');`}>
             <div class="carousel-card-overlay"></div>
-            <h3><a href="/amenities">Amenities</a></h3>
+            <h3><a href={withBase('/amenities')}>Amenities</a></h3>
           </div>
-          <div class="carousel-card" style="background-image: url('/images/card-winter.jpg');">
+          <div class="carousel-card" style={`background-image: url('${withBase('/images/card-winter.jpg')}');`}>
             <div class="carousel-card-overlay"></div>
-            <h3><a href="/mountain">Winter Activities</a></h3>
+            <h3><a href={withBase('/mountain')}>Winter Activities</a></h3>
           </div>
-          <div class="carousel-card" style="background-image: url('/images/card-summer.jpg');">
+          <div class="carousel-card" style={`background-image: url('${withBase('/images/card-summer.jpg')}');`}>
             <div class="carousel-card-overlay"></div>
-            <h3><a href="/lifestyle">Summer Activities</a></h3>
+            <h3><a href={withBase('/lifestyle')}>Summer Activities</a></h3>
           </div>
         </div>
       </div>
@@ -260,10 +261,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <div class="reserve-content">
         <h2 class="reserve-title">Reserve Your Stay</h2>
         <p class="reserve-description">Begin your mountain retreat today. Contact our hospitality team to plan your perfect Hoback experience.</p>
-        <a href="/stay" class="btn btn--primary">Inquire About a Stay</a>
+        <a href={withBase('/stay')} class="btn btn--primary">Inquire About a Stay</a>
       </div>
       <div class="reserve-image">
-        <img src="/images/hoback_drawing1.png" alt="Hoback Clubhouse" />
+        <img src={withBase('/images/hoback_drawing1.png')} alt="Hoback Clubhouse" />
       </div>
     </div>
   </section>
