@@ -15,18 +15,18 @@ const pageLinks = [
 ---
 
 <footer>
-  <!-- Panel 1: CTA + Links (left) / Drawing (right) — tan background -->
+  <!-- Panel 1: Mountain drawing (left) / CTA text (right) — tan background -->
   <div class="footer-cta">
     <div class="footer-cta-inner">
+      <div class="footer-cta-drawing">
+        <img src={withBase('/images/tetons_drawing4.png')} alt="" />
+      </div>
       <div class="footer-cta-text">
         <h2 class="footer-cta-heading">Questions or Special Requests?</h2>
         <p class="footer-cta-body">
-          Contact us at <a href="tel:+13072491000" class="footer-phone">(307) 249-1000</a> or email <a href="mailto:info@hobackclub.com" class="footer-phone">info@hobackclub.com</a>
+          Contact us at <a href="tel:+13072495943" class="footer-phone">(307) 249-5943</a> or email <a href="mailto:concierge@hobackclub.com" class="footer-phone">concierge@hobackclub.com</a>
         </p>
         <a href={withBase('/contact')} class="footer-cta-btn">Get in Touch</a>
-      </div>
-      <div class="footer-cta-drawing">
-        <img src={withBase('/images/hoback_drawing1.png')} alt="" />
       </div>
     </div>
   </div>
@@ -39,6 +39,14 @@ const pageLinks = [
           <img src={withBase('/images/logo-footer.svg')} alt="Hoback Club" />
         </a>
       </div>
+      <div class="footer-club-info">
+        <span class="footer-club-name">HOBACK CLUB</span>
+        <span class="footer-club-location">Jackson Hole, Wyoming</span>
+        <span class="footer-club-address">P.O. Box 158, Teton Village, WY 83025</span>
+        <span class="footer-club-contact">
+          <a href="tel:+13072495943">(307) 249-5943</a> &middot; <a href="mailto:concierge@hobackclub.com">concierge@hobackclub.com</a>
+        </span>
+      </div>
       <nav class="footer-nav">
         {pageLinks.map(link => (
           <a
@@ -49,7 +57,6 @@ const pageLinks = [
       </nav>
       <div class="footer-legal">
         <span>&copy; {new Date().getFullYear()} Hoback Club. All Rights Reserved.</span>
-        <span class="footer-address">P.O. Box 158, Teton Village, WY 83025</span>
       </div>
     </div>
     <button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">&uarr;</button>
@@ -118,14 +125,14 @@ const pageLinks = [
     background: #0d1a24;
   }
   .footer-cta-drawing {
-    flex: 0 0 220px;
-    text-align: right;
+    flex: 0 0 300px;
+    text-align: left;
   }
   .footer-cta-drawing img {
     display: block;
-    width: 220px;
+    width: 300px;
     height: auto;
-    opacity: 0.25;
+    opacity: 0.15;
   }
 
   /* ===== PANEL 2: DARK BOTTOM BAR ===== */
@@ -143,9 +150,47 @@ const pageLinks = [
     gap: 24px;
   }
   .footer-logo img {
-    height: 50px;
+    height: 80px;
     width: auto;
     opacity: 0.8;
+  }
+
+  /* Club info block */
+  .footer-club-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    font-family: 'Lato', Helvetica, Arial, sans-serif;
+    color: rgba(255, 255, 255, 0.55);
+  }
+  .footer-club-name {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  .footer-club-location {
+    font-size: 0.75rem;
+    font-weight: 300;
+    font-style: italic;
+  }
+  .footer-club-address {
+    font-size: 0.68rem;
+    font-weight: 300;
+  }
+  .footer-club-contact {
+    font-size: 0.68rem;
+    font-weight: 300;
+  }
+  .footer-club-contact a {
+    color: rgba(255, 255, 255, 0.55);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .footer-club-contact a:hover {
+    color: #fff;
   }
 
   /* Page links row */
@@ -215,7 +260,7 @@ const pageLinks = [
     }
     .footer-cta-drawing img {
       margin: 0 auto;
-      width: 160px;
+      width: 200px;
     }
     .footer-bottom {
       padding: 30px 20px 24px;

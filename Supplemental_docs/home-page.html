@@ -1,0 +1,508 @@
+<!-- INJECTABLE: Full Homepage — Mountain drawing hero + 5 showcase panels + gallery + reserve section -->
+<!-- Paste this entire block into a Club Essential HTML content region -->
+<!-- All images use absolute URLs — no local file dependencies -->
+<style>
+    /* ===== CE OVERRIDES ===== */
+    body { background-color: #ede9e1 !important; overflow-x: hidden !important; }
+    html { overflow-x: hidden !important; }
+    /* ===== FULL-WIDTH BREAKOUT ===== */
+    .hb-section {
+    width: 100%;
+    max-width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-top: 0;
+    margin-bottom: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    }
+    /* ===== MOUNTAIN DRAWING HERO ===== */
+    .hb-hero-mtn {
+    background: #ede9e1;
+    padding: 80px 0;
+    overflow: hidden;
+    }
+    .hb-hero-mtn-inner {
+    display: flex;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    }
+    .hb-hero-mtn-img {
+    flex: 0 0 60%;
+    margin-left: -80px;
+    }
+    .hb-hero-mtn-img img {
+    width: 100%;
+    max-width: 950px;
+    opacity: 0.55;
+    display: block;
+    }
+    .hb-hero-mtn-text {
+    flex: 1;
+    padding: 0 60px 0 40px;
+    text-align: right;
+    }
+    .hb-hero-mtn-sub {
+    font-family: 'Lato', Helvetica, Arial, sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: #7a8d98;
+    margin: 0 0 20px;
+    }
+    .hb-hero-mtn-headline {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(3.2rem, 5vw, 4.8rem);
+    font-weight: 300;
+    color: #1e2d3a;
+    line-height: 1.1;
+    margin: 0 0 40px;
+    }
+    .hb-hero-mtn-btn {
+    display: inline-block;
+    padding: 20px 52px;
+    background: #1e2d3a;
+    color: #fff;
+    font-family: 'Lato', Helvetica, Arial, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    transition: background 0.3s;
+    text-decoration: none;
+    }
+    .hb-hero-mtn-btn:hover { background: #365e75; }
+    /* ===== SHOWCASE PANELS ===== */
+    .hb-panels {
+    background: #ede9e1;
+    }
+    .hb-panels__header {
+    padding: 80px 6% 20px;
+    }
+    .hb-panels__header span {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(3.2rem, 4.5vw, 5rem);
+    font-weight: 300;
+    color: #1e2d3a;
+    letter-spacing: 0.02em;
+    }
+    .hb-panels__item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: auto;
+    overflow: hidden;
+    padding: 60px 6%;
+    gap: 5%;
+    }
+    .hb-panels__item:nth-child(odd) { flex-direction: row-reverse; }
+    .hb-panels__img-wrap {
+    position: relative;
+    flex: 0 0 38%;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .hb-panels__item.is-revealed .hb-panels__img-wrap {
+    opacity: 1;
+    transform: translateY(0);
+    }
+    .hb-panels__img-wrap::before {
+    content: '';
+    display: block;
+    padding-top: 70%;
+    }
+    .hb-panels__img {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    }
+    .hb-panels__text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 0;
+    position: relative;
+    color: #1e2d3a;
+    }
+    .hb-panels__number {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(8rem, 14vw, 18rem);
+    font-weight: 300;
+    line-height: 1;
+    color: rgba(30,45,58,0.04);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.8s ease 0.15s;
+    pointer-events: none;
+    white-space: nowrap;
+    }
+    .hb-panels__item.is-revealed .hb-panels__number { opacity: 1; }
+    .hb-panels__line {
+    width: 70px;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(30,45,58,0.35), rgba(30,45,58,0));
+    margin-bottom: 20px;
+    opacity: 0;
+    transition: opacity 0.8s ease 0.2s;
+    }
+    .hb-panels__item.is-revealed .hb-panels__line { opacity: 1; }
+    .hb-panels__heading {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(2.8rem, 3.5vw, 4.6rem);
+    font-weight: 300;
+    line-height: 1.15;
+    color: #1e2d3a;
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.7s ease 0.2s, transform 0.7s ease 0.2s;
+    }
+    .hb-panels__item.is-revealed .hb-panels__heading {
+    opacity: 1;
+    transform: translateY(0);
+    }
+    .hb-panels__desc {
+    font-family: 'Lato', Helvetica, Arial, sans-serif;
+    font-size: clamp(1.15rem, 1.5vw, 1.55rem);
+    font-weight: 300;
+    line-height: 1.75;
+    max-width: 480px;
+    margin: 16px 0 0;
+    color: rgba(30,45,58,0.78);
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.7s ease 0.35s, transform 0.7s ease 0.35s;
+    }
+    .hb-panels__item.is-revealed .hb-panels__desc {
+    opacity: 1;
+    transform: translateY(0);
+    }
+    /* ===== IMAGE GALLERY ===== */
+    .hb-gallery {
+    background: #ede9e1;
+    padding: 30px 0 40px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    }
+    .hb-gallery::-webkit-scrollbar { display: none; }
+    .hb-gallery__track {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    padding: 0;
+    width: max-content;
+    }
+    .hb-gallery__slide {
+    flex-shrink: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    }
+    .hb-gallery__slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    }
+    @media (max-width: 768px) {
+    .hb-gallery__slide { transform: scale(0.35); }
+    .hb-gallery__track { gap: 0 !important; margin-left: -10%; }
+    .hb-gallery__slide + .hb-gallery__slide { margin-left: -65%; }
+    }
+    @media (max-width: 480px) {
+    .hb-gallery__slide { transform: scale(0.22); }
+    .hb-gallery__slide + .hb-gallery__slide { margin-left: -75%; }
+    }
+    /* ===== RESERVE YOUR STAY (reversed drawing) ===== */
+    .hb-reserve-drawing {
+    background: #ede9e1;
+    padding: 80px 0;
+    overflow: hidden;
+    }
+    .hb-reserve-drawing-inner {
+    display: flex;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    }
+    .hb-reserve-drawing-text {
+    flex: 1;
+    padding: 0 40px 0 60px;
+    text-align: left;
+    }
+    .hb-reserve-drawing-img {
+    flex: 0 0 50%;
+    margin-right: -150px;
+    }
+    .hb-reserve-drawing-img img {
+    max-height: 280px;
+    width: auto;
+    max-width: 720px;
+    opacity: 0.55;
+    display: block;
+    }
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1200px) {
+    .hb-hero-mtn-inner, .hb-reserve-inner { max-width: 100%; }
+    .hb-hero-mtn-headline { font-size: 2.8rem; }
+    }
+    @media (max-width: 900px) {
+    .hb-panels__item { flex-direction: column !important; padding: 40px 6%; gap: 0; }
+    .hb-panels__img-wrap { flex: none; width: 100%; }
+    .hb-panels__img-wrap::before { padding-top: 60%; }
+    .hb-panels__text { flex: none; padding: 30px 0 0; }
+    .hb-panels__number { font-size: clamp(6rem, 20vw, 12rem); }
+    }
+    @media (max-width: 768px) {
+    .hb-hero-mtn { padding: 40px 0; }
+    .hb-hero-mtn-inner { flex-direction: column; align-items: center; }
+    .hb-hero-mtn-img { flex: none; margin-left: 0; margin-bottom: 20px; width: 90%; max-width: 500px; }
+    .hb-hero-mtn-img img { opacity: 0.4; }
+    .hb-hero-mtn-text { padding: 0 24px; text-align: center; }
+    .hb-hero-mtn-headline { font-size: 2.2rem; margin-bottom: 24px; }
+    .hb-hero-mtn-btn { padding: 14px 32px; font-size: 0.8rem; }
+    .hb-panels__header { padding: 50px 24px 14px; }
+    .hb-panels__header span { font-size: 2.4rem; }
+    .hb-panels__item { padding: 36px 24px; }
+    .hb-panels__heading { font-size: clamp(1.8rem, 6vw, 2.6rem); }
+    .hb-panels__desc { font-size: 1rem; max-width: 100%; }
+    .hb-panels__line { width: 50px; margin-bottom: 14px; }
+    .hb-gallery { padding: 12px 0 20px; }
+    .hb-gallery__track { gap: 10px; }
+    .hb-reserve-drawing { padding: 40px 0; }
+    .hb-reserve-drawing-inner { flex-direction: row; align-items: center; padding: 0 20px; }
+    .hb-reserve-drawing-text { text-align: left; padding: 0 16px 0 0; }
+    .hb-reserve-drawing-text .hb-hero-mtn-headline { font-size: 1.6rem; margin-bottom: 16px; }
+    .hb-reserve-drawing-text .hb-hero-mtn-btn { padding: 10px 22px; font-size: 0.7rem; }
+    .hb-reserve-drawing-img { flex: 0 0 40%; margin-right: -20px; }
+    .hb-reserve-drawing-img img { max-height: 140px; max-width: 100%; }
+    }
+    @media (max-width: 480px) {
+    .hb-hero-mtn { padding: 30px 0; }
+    .hb-hero-mtn-img { width: 95%; }
+    .hb-hero-mtn-headline { font-size: 1.8rem; margin-bottom: 20px; }
+    .hb-hero-mtn-btn { padding: 12px 28px; font-size: 0.75rem; }
+    .hb-panels__item { padding: 28px 18px; }
+    .hb-panels__heading { font-size: 1.6rem; }
+    .hb-panels__desc { font-size: 0.92rem; }
+    .hb-panels__number { display: none; }
+    .hb-panels__header span { font-size: 2rem; }
+    .hb-reserve-drawing-text .hb-hero-mtn-headline { font-size: 1.7rem; }
+    .hb-reserve-drawing-img { width: 85%; }
+    }
+</style>
+<!-- ========== 1. MOUNTAIN DRAWING HERO — "Experience the Hoback Club" ========== -->
+<section class="hb-section hb-hero-mtn">
+<div class="hb-hero-mtn-inner">
+<div class="hb-hero-mtn-img">
+<img src="https://mcusercontent.com/c4b9546b92e82ffccc39aa16c/images/3014529e-7a5a-646a-3a9c-32e89256771c.png" alt="Teton Mountains Sketch">
+</div>
+<div class="hb-hero-mtn-text">
+<h2 class="hb-hero-mtn-headline">Experience the Hoback Club</h2>
+<a href="https://hobackclub.com/default.aspx?p=dynamicpage&amp;pageid=425178" class="hb-hero-mtn-btn">Learn More</a>
+</div>
+</div>
+</section>
+<!-- ========== 2. IMAGE GALLERY — Endless scroll ========== -->
+<section class="hb-section hb-gallery" id="hbGallery">
+<div class="hb-gallery__track" id="hbGalleryTrack"></div>
+</section>
+<!-- ========== 3. SHOWCASE PANELS ========== -->
+<section class="hb-section hb-panels" id="hbPanels">
+<div class="hb-panels__header"><br>
+</div>
+<!-- 01 — Ski Access -->
+<div class="hb-panels__item">
+<div class="hb-panels__img-wrap">
+<div class="hb-panels__img" style="background-image: url('https://jhskis.com/wp-content/uploads/2014/11/Ski1.jpg')"></div>
+</div>
+<div class="hb-panels__text">
+<div class="hb-panels__line"></div>
+<h2 class="hb-panels__heading">The Best Ski-In, Ski-Out Access in Jackson</h2>
+<p class="hb-panels__desc">Step directly from your residence onto pristine corduroy. The most coveted slope-side position at Jackson Hole Mountain Resort, where powder days begin at your front door.</p>
+</div>
+</div>
+<!-- 02 — Spa -->
+<div class="hb-panels__item">
+<div class="hb-panels__img-wrap">
+<div class="hb-panels__img" style="background-image: url('images/dynamic/getImage.gif?ID=100158')"></div>
+</div>
+<div class="hb-panels__text">
+<div class="hb-panels__line"></div>
+<h2 class="hb-panels__heading">World-Class Wellness &amp; Recovery Spa</h2>
+<p class="hb-panels__desc">Restore body and mind in our alpine sanctuary. From hydrotherapy pools to expert-guided recovery sessions, every detail is designed to rejuvenate after a day on the mountain.</p>
+</div>
+</div>
+<!-- 03 — Dining -->
+<div class="hb-panels__item">
+<div class="hb-panels__img-wrap">
+<div class="hb-panels__img" style="background-image: url('images/dynamic/getImage.gif?ID=100160')"></div>
+</div>
+<div class="hb-panels__text">
+<div class="hb-panels__line"></div>
+<h2 class="hb-panels__heading">Private Residence Dining, Locally Sourced</h2>
+<p class="hb-panels__desc">Savor cuisine crafted by our culinary team from the finest regional ingredients. From intimate fireside dinners to curated tasting events, every meal becomes an occasion.</p>
+</div>
+</div>
+<!-- 04 — Après -->
+<div class="hb-panels__item">
+<div class="hb-panels__img-wrap">
+<div class="hb-panels__img" style="background-image: url('images/dynamic/getImage.gif?ID=100159')"></div>
+</div>
+<div class="hb-panels__text">
+<div class="hb-panels__line"></div>
+<h2 class="hb-panels__heading">Indoor &amp; Outdoor Après Ski Lounges</h2>
+<p class="hb-panels__desc">Unwind fireside or beneath the stars. Thoughtfully designed gathering spaces that bring members together in effortless sophistication, from morning coffee to evening cocktails.</p>
+</div>
+</div>
+<!-- 05 — National Park -->
+<div class="hb-panels__item">
+<div class="hb-panels__img-wrap">
+<div class="hb-panels__img" style="background-image: url('images/dynamic/getImage.gif?ID=100125')"></div>
+</div>
+<div class="hb-panels__text">
+<div class="hb-panels__line"></div>
+<h2 class="hb-panels__heading">Direct Access to Grand Teton National Park</h2>
+<p class="hb-panels__desc">Your gateway to one of America's most iconic landscapes. Miles of pristine trails, untouched wilderness, and crystal waters begin where your doorstep ends.</p>
+</div>
+</div>
+</section>
+<!-- ========== 4. HOBACK DRAWING — "Reserve Your Stay" ========== -->
+<section class="hb-section hb-reserve-drawing">
+<div class="hb-reserve-drawing-inner">
+<div class="hb-reserve-drawing-text">
+<h2 class="hb-hero-mtn-headline">Reserve<br>
+Your Stay</h2>
+<a href="https://hobackclub.com/contact-us" class="hb-hero-mtn-btn">Inquire About a Stay</a>
+</div>
+<div class="hb-reserve-drawing-img">
+<img src="https://mcusercontent.com/c4b9546b92e82ffccc39aa16c/images/e1d7d626-3731-d70e-5fb3-8f73f62cb84f.png" alt="Hoback Club Sketch">
+</div>
+</div>
+</section>
+<!-- JS -->
+<script>
+(function() {
+  // Strip CE parent containers
+  var anchor = document.querySelector('.hb-section');
+  if (anchor) {
+    var el = anchor.parentElement;
+    while (el && el !== document.body && el !== document.documentElement) {
+      el.style.padding = '0';
+      el.style.margin = '0';
+      el.style.background = 'transparent';
+      el.style.backgroundColor = 'transparent';
+      el.style.maxWidth = 'none';
+      el.style.overflow = 'visible';
+      el = el.parentElement;
+    }
+  }
+
+  // Scroll-triggered reveal for showcase panels
+  var panels = document.querySelectorAll('.hb-panels__item');
+  if (panels.length) {
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('is-revealed');
+            observer.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      panels.forEach(function(p) { observer.observe(p); });
+    } else {
+      panels.forEach(function(p) { p.classList.add('is-revealed'); });
+    }
+  }
+
+  // Endless image gallery
+  var IMAGES = [
+    { src: "images/dynamic/getImage.gif?ID=100196", scale: 1.3, aspect: 0.65 },
+    { src: "images/dynamic/getImage.gif?ID=100149", scale: 1.4, aspect: 0.6 },
+    { src: "images/dynamic/getImage.gif?ID=100151", scale: 0.8, aspect: 1.25 },
+    { src: "images/dynamic/getImage.gif?ID=100195", scale: 0.85, aspect: 1.1 },
+    { src: "images/dynamic/getImage.gif?ID=100152", scale: 1.6, aspect: 0.5 },
+    { src: "images/dynamic/getImage.gif?ID=100156", scale: 0.9, aspect: 1.0 },
+    { src: "images/dynamic/getImage.gif?ID=100167", scale: 1.3, aspect: 0.7 },
+    { src: "images/dynamic/getImage.gif?ID=100192", scale: 1.1, aspect: 0.75 },
+    { src: "images/dynamic/getImage.gif?ID=100170", scale: 0.75, aspect: 1.35 },
+    { src: "images/dynamic/getImage.gif?ID=100169", scale: 1.5, aspect: 0.55 },
+    { src: "images/dynamic/getImage.gif?ID=100172", scale: 1.0, aspect: 0.85 }
+  ];
+
+  var track = document.getElementById('hbGalleryTrack');
+  var container = document.getElementById('hbGallery');
+  if (!track || !container) return;
+
+  var vw = window.innerWidth;
+  var BASE = vw < 480 ? 100 : vw < 768 ? 150 : 380;
+  var GAP = vw < 480 ? 10 : vw < 768 ? 14 : 32;
+
+  function makeSlide(item) {
+    var w = Math.round(BASE * (item.scale || 1));
+    var s = document.createElement('div');
+    s.className = 'hb-gallery__slide';
+    s.style.width = w + 'px';
+    s.style.height = Math.round(w * (item.aspect || 0.75)) + 'px';
+    var img = document.createElement('img');
+    img.src = item.src;
+    img.alt = 'Hoback Club';
+    img.loading = 'lazy';
+    s.appendChild(img);
+    return s;
+  }
+
+  for (var c = 0; c < 3; c++) {
+    IMAGES.forEach(function(item) { track.appendChild(makeSlide(item)); });
+  }
+
+  var allSlides = track.querySelectorAll('.hb-gallery__slide');
+  var oneSet = 0;
+  for (var i = 0; i < IMAGES.length; i++) {
+    oneSet += allSlides[i].offsetWidth + GAP;
+  }
+
+  // Start centered on 3rd image (index 2)
+  var startSlide = allSlides[2];
+  if (startSlide) {
+    container.scrollLeft = startSlide.offsetLeft - (container.offsetWidth / 2) + (startSlide.offsetWidth / 2);
+  }
+  var speed = 0.25;
+  var paused = false;
+  var timer;
+
+  function drift() {
+    if (!paused) {
+      container.scrollLeft += speed;
+      if (container.scrollLeft >= oneSet) container.scrollLeft -= oneSet;
+    }
+    requestAnimationFrame(drift);
+  }
+  requestAnimationFrame(drift);
+
+  function pause() { paused = true; clearTimeout(timer); }
+  function resume() { clearTimeout(timer); timer = setTimeout(function() { paused = false; }, 2000); }
+  container.addEventListener('mouseenter', pause);
+  container.addEventListener('mouseleave', resume);
+  container.addEventListener('touchstart', pause, { passive: true });
+  container.addEventListener('touchend', resume, { passive: true });
+})();
+</script>
